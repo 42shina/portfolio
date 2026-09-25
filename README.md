@@ -58,7 +58,7 @@ docker run --rm \
 - キャッシュは最小0秒、既定300秒、最大1日。公開時に無効化します。
 - 不明なパスは `404.html` とHTTP 404を返します。SPA用の200フォールバックはありません。
 - S3は東京リージョン、CloudFrontは日本を含む `PriceClass_200`。従量課金が発生します。
-- 独自ドメイン、Route 53、ACM、CI/CDはまだ含みません。
+- 独自ドメイン、Route 53、ACMはまだ含みません。CI/CDはGitHub Actionsで構成します。
 
 OACの設計は[AWS公式ドキュメント](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html)に基づきます。
 
@@ -80,6 +80,10 @@ terraform apply portfolio.tfplan
 ```
 
 同じアカウントに複数環境を作る場合は `project_name` を変えてください。生成される `.terraform.lock.hcl` はGitに含めます。state・tfvars・planはGit対象外です。stateは初期状態ではローカル管理なので保管が必要です。チーム運用前にリモートbackendを設定してください。
+
+## CI/CD（GitHub Actions）
+
+PRでテスト・ビルド・Terraform検証を実行し、mainへの反映後にS3＋CloudFrontへ自動配信します。AWS認証はOIDCを使用します。初期状態では配信を無効にしているため、[CI/CDの初期設定手順](docs/ci-cd.md)に従ってIAMロール・GitHub Variablesを設定してください。
 
 ## サイトを公開・更新
 

@@ -1,0 +1,88 @@
+name: Portfolio CI/CD
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Test, build and validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: '1.16.4'
+      - run: terraform -chdir=infra fmt -check -recursive
+      - run: terraform -chdir=infra init -backend=false -input=false -lockfile=readonly
+      - run: terraform -chdir=infra validate
+      - uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-site
+          path: site/
+          if-no-files-found: error
+          retention-days: 7
+
+  deploy:
+    name: Deploy to production
+    needs: check
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: production
+    concurrency:
+      group: portfolio-production
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION }}
+      AWS_ROLE_ARN: ${{ vars.AWS_ROLE_ARN }}
+      S3_BUCKET_NAME: ${{ vars.S3_BUCKET_NAME }}
+      CLOUDFRONT_DISTRIBUTION_ID: ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}
+    steps:
+      - name: Validate deployment settings
+        shell: bash
+        run: |
+          set -euo pipefail
+          : "${AWS_REGION:?Set production variable AWS_REGION}"
+          : "${AWS_ROLE_ARN:?Set production variable AWS_ROLE_ARN}"
+          : "${S3_BUCKET_NAME:?Set production variable S3_BUCKET_NAME}"
+          : "${CLOUDFRONT_DISTRIBUTION_ID:?Set production variable CLOUDFRONT_DISTRIBUTION_ID}"
+      - uses: actions/download-artifact@v4
+        with:
+          name: portfolio-site
+          path: site/
+      - uses: aws-actions/configure-aws-credentials@v6.3.0
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+          role-session-name: portfolio-${{ github.run_id }}
+      - name: Upload assets before HTML
+        shell: bash
+        run: |
+          set -euo pipefail
+          aws s3 sync site/ "s3://${S3_BUCKET_NAME}/" --exclude '*.html' --cache-control 'public,max-age=300' --no-progress
+          aws s3 cp site/ "s3://${S3_BUCKET_NAME}/" --recursive --exclude '*' --include '*.html' --cache-control 'public,max-age=0,must-revalidate' --no-progress
+      - name: Invalidate CloudFront and wait
+        shell: bash
+        run: |
+          set -euo pipefail
+          invalidation_id=$(aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths '/*' --query 'Invalidation.Id' --output text)
+          aws cloudfront wait invalidation-completed --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --id "$invalidation_id"
