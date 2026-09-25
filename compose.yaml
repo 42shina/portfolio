@@ -1,0 +1,18 @@
+name: portfolio-standalone
+
+services:
+  portfolio:
+    image: node:22-slim
+    working_dir: /app
+    command: sh -c "npm ci && npm run dev -- --host 0.0.0.0 --port 5173"
+    ports:
+      - "127.0.0.1:8081:5173"
+    volumes:
+      - .:/app
+      - portfolio_node_modules:/app/node_modules
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+    restart: unless-stopped
+
+volumes:
+  portfolio_node_modules:

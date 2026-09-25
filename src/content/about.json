@@ -1,0 +1,98 @@
+{
+  "eyebrow": "02 / ABOUT ME",
+  "title": [
+    "任せられる作業を、",
+    "経験とともに。"
+  ],
+  "paragraphs": [
+    "得意なのは、日々の運用で生じる手作業を、Webアプリや管理ツールの機能にすることです。CozyCtrlでは、出欠の目視確認や表計算での編成という課題から、Bot・管理画面・API・インフラまで自分で設計・実装しました。",
+    "実務での開発経験と個人開発の事例を分けて紹介しています。既存システムの仕様や必要な運用水準を確認したうえで、担当範囲を相談します。"
+  ],
+  "skillsTitle": "作業から見るスキルと対応範囲",
+  "skillGroups": [
+    {
+      "id": "primary",
+      "title": "主担当として取り組む領域",
+      "description": "個人開発で設計・実装を通して担当した作業を中心にしています。",
+      "items": [
+        {
+          "name": "React / TypeScript",
+          "kind": "frontend",
+          "context": "実務・個人開発",
+          "works": [
+            "コンポーネントの設計・実装",
+            "画面とAPIの接続"
+          ],
+          "evidence": "CozyCtrl：出欠・スキル情報の管理とパーティー編成を支援する画面。",
+          "href": "/projects/cozyctrl/"
+        },
+        {
+          "name": "Rust / Axum / Serenity",
+          "kind": "backend",
+          "context": "Rustは実務・個人開発で使用",
+          "works": [
+            "APIサーバーの実装",
+            "Discord Botによるリアクションの自動収集"
+          ],
+          "evidence": "CozyCtrl：Botによる情報収集からWebアプリへの連携まで。",
+          "href": "/projects/cozyctrl/"
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "title": "要件に合わせて範囲を相談",
+      "description": "対象システムや利用規模、運用要件を確認して進める領域です。",
+      "items": [
+        {
+          "name": "PHP",
+          "kind": "frontend",
+          "context": "実務",
+          "works": [
+            "画面の設計・実装",
+            "業務Webアプリケーション・Web APIの実装"
+          ],
+          "evidence": "E-Learningシステムの開発で使用。"
+        },
+        {
+          "name": "AWS / Terraform",
+          "kind": "infra",
+          "context": "AWSは実務・個人開発で使用",
+          "works": [
+            "CloudFront / Lambda / Auroraを使う構成の検討・実装",
+            "TerraformによるS3 / CloudFront配信構成の定義"
+          ],
+          "evidence": "公開事例は小規模サービスが中心。可用性や監視、保守の要件は個別に相談。",
+          "href": "/projects/cozyctrl/"
+        },
+        {
+          "name": "Docker / MySQL",
+          "kind": "infra",
+          "context": "個人開発の事例：CozyCtrl",
+          "works": [
+            "ローカル開発環境・本番環境の構築",
+            "データベースの設計・管理"
+          ],
+          "evidence": "既存環境への導入や移行は、現状とデータの扱いを確認して相談。"
+        }
+      ]
+    },
+    {
+      "id": "exploration",
+      "title": "学習・個人の取り組み",
+      "description": "業務の対応範囲とは分けて、取り組んでいる内容を紹介します。",
+      "items": [
+        {
+          "name": "Python / データ分析",
+          "kind": "backend",
+          "context": "Kaggle・個人の取り組み",
+          "works": [
+            "Kaggleのデータ分析",
+            "DjangoによるWeb APIの実装"
+          ],
+          "evidence": "分析業務の受託範囲は、求められる成果と専門性を確認して相談。"
+        }
+      ]
+    }
+  ]
+}

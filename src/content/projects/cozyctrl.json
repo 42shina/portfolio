@@ -1,0 +1,100 @@
+{
+  "id": "cozyctrl",
+  "number": "01",
+  "title": "CozyCtrl",
+  "visual": "cozyctrl",
+  "visualLabel": "COZYCTRL / LOGO",
+  "visualDescription": "CozyCtrlのロゴアイコン",
+  "wide": true,
+  "description": "50人以上が所属するゲームギルド向けの運営支援ツール。Discordのリアクションを収集し、出欠・スキル情報の管理とパーティー編成を支援します。",
+  "details": [
+    {
+      "label": "利用対象・運用",
+      "text": "50人以上が所属するゲームギルドの運営を支援する、身内での利用を中心とした非収益化サービスです。50人以上はギルドの所属人数であり、実利用者数を示すものではありません。"
+    },
+    {
+      "label": "課題",
+      "text": "出欠やスキル情報をチャットのリアクションで集めていましたが、人数が多く、目視確認に手間がかかっていました。パーティー編成は表計算ソフトで管理し、条件が変わるたびに関数やマクロの調整が必要でした。"
+    },
+    {
+      "label": "対応・担当範囲",
+      "text": "リアクションを自動収集するDiscord Botと、出欠・スキル情報の管理、パーティー編成を行うWeb画面を開発しました。個人開発として、フロントエンド、API、Bot、データベース、インフラまで構成を考え、設計・実装しています。"
+    },
+    {
+      "label": "作業の変化",
+      "text": "チャット上のリアクションをBotで収集し、出欠を管理画面で確認できるようにしました。パーティー編成もWeb画面で扱えるようにし、運営に必要な情報をツール上で管理できるようにしています。"
+    },
+    {
+      "label": "運用構成の見直し",
+      "text": "利用規模に対して運用コストが高かったため、EC2上のコンテナ構成から、CloudFront・Lambda・Aurora Serverless v2を使う構成へ変更しました。費用削減の実測値は掲載していません。"
+    },
+    {
+      "label": "今後確認したいこと",
+      "text": "運営作業にかかる時間や利用頻度、構成変更前後の費用を定量的に確認し、実際の利用に合った改善を続けることです。"
+    }
+  ],
+  "tags": [
+    {
+      "name": "React",
+      "kind": "frontend"
+    },
+    {
+      "name": "TypeScript",
+      "kind": "frontend"
+    },
+    {
+      "name": "Axum",
+      "kind": "backend"
+    },
+    {
+      "name": "Serenity",
+      "kind": "backend"
+    },
+    {
+      "name": "Rust",
+      "kind": "backend"
+    },
+    {
+      "name": "MySQL",
+      "kind": "infra"
+    },
+    {
+      "name": "Terraform",
+      "kind": "infra"
+    },
+    {
+      "name": "Google Spreadsheet API",
+      "kind": "infra"
+    },
+    {
+      "name": "AWS CloudFront / Lambda / Aurora Serverless v2",
+      "kind": "infra"
+    }
+  ],
+  "diagrams": [
+    {
+      "src": "/diagrams/cozyctrl-production-green.svg",
+      "alt": "CozyCtrl の AWS 構成図（Production Green）",
+      "caption": "CozyCtrl — AWS Architecture（CloudFront + Lambda + Aurora Serverless v2）"
+    }
+  ],
+  "link": {
+    "label": "CozyCtrl",
+    "href": "https://cozyctrl.com"
+  },
+  "pendingLinkText": "公開リンクは準備中です。",
+  "highlights": [
+    {
+      "label": "課題",
+      "text": "チャットのリアクションを目視で確認し、表計算でパーティーを編成。"
+    },
+    {
+      "label": "対応",
+      "text": "Botでリアクションを自動収集し、管理画面から出欠確認・編成を行えるように。"
+    },
+    {
+      "label": "担当",
+      "text": "個人開発として、画面・API・Bot・データベース・インフラを設計・実装。"
+    }
+  ]
+}

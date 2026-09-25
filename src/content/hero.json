@@ -1,0 +1,27 @@
+{
+  "eyebrow": "T.S / PORTFOLIO",
+  "titleBefore": "暮らしの課題を、",
+  "titleMiddle": "使える",
+  "titleAccent": "仕組み",
+  "titleAfter": "に。",
+  "intro": "小規模なWebアプリや管理ツールを、画面・API・インフラまで通して開発しています。実務ではReact / TypeScriptを用いたWeb開発とE-Learningシステムの開発に従事。個人開発では、Discordを使ったギルド運営の出欠管理・編成作業を支援しています。",
+  "button": "代表事例を見る",
+  "note": "画面の実装から、日々の運用の改善まで。",
+  "artMeta": "IDEAS → THINGS",
+  "artCaption": "PERSONAL PROJECTS",
+  "artYear": "2026",
+  "services": [
+    {
+      "title": "管理画面の設計・実装",
+      "text": "React / TypeScriptで、コンポーネントの設計からAPIとの接続まで。"
+    },
+    {
+      "title": "手作業を減らすツール開発",
+      "text": "Discord Botによる情報収集と、出欠・編成を扱うWebアプリの実装。"
+    },
+    {
+      "title": "小規模サービスの構成見直し",
+      "text": "画面・API・データ保存をつなぎ、利用規模と運用コストに合わせて構成を検討。"
+    }
+  ]
+}

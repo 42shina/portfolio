@@ -1,0 +1,40 @@
+{
+  "id": "portfolio",
+  "number": "02",
+  "title": "このポートフォリオ",
+  "visual": "portfolio",
+  "visualLabel": "PORTFOLIO / SITE STRUCTURE",
+  "visualDescription": "このポートフォリオサイトのページ構成を表したイメージ図",
+  "wide": true,
+  "description": "作品の背景と担当範囲を伝えるReact製サイト。トップは一覧、作品ごとに詳細ページを分け、コンテンツをJSONで管理し、S3とCloudFrontへの配信構成をTerraformで定義しています。",
+  "details": [
+    {
+      "label": "背景",
+      "text": "自分のこれまでの活動や経験をまとめたいと思い、ポートフォリオサイトを作成しました。"
+    },
+    {
+      "label": "課題と工夫",
+      "text": "トップで概要を示し、課題・実装・学びは作品詳細ページで読めるように整理。差し替えや追加など、今後も更新される可能性の高いコンテンツはJSONから行う設計にしました。"
+    },
+    {
+      "label": "成果・学び",
+      "text": "安価で手軽に更新できるブログ等における最低限のAWS構成を学びました。"
+    }
+  ],
+  "tags": [
+    { "name": "React", "kind": "frontend" },
+    { "name": "Terraform", "kind": "infra" },
+    { "name": "AWS S3 / CloudFront", "kind": "infra" }
+  ],
+  "diagrams": [
+    {
+      "src": "/diagrams/portfolio-aws.svg",
+      "alt": "このポートフォリオの AWS 構成図",
+      "caption": "Portfolio — AWS Architecture（CloudFront + private S3 / OAC）"
+    }
+  ],
+  "link": {
+    "label": "サイトを見る",
+    "href": "/"
+  }
+}
