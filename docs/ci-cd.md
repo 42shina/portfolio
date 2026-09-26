@@ -16,7 +16,7 @@ Terraformのstateはローカル管理のため、CIではAWS認証不要の静�
 
 [リポジトリのSettings](https://github.com/42shina/portfolio/settings) → Environments → New environmentで、**production** を作成します。
 
-Deployment branches and tagsで **Selected branches and tags** を選び、Branchの **main** だけを許可します。OIDCの信頼ポリシーは `repo:42shina/portfolio:environment:production` に限定しているため、環境側のブランチ制限も設定してください。GitHubプランによって利用可能な保護ルールが異なります。
+Deployment branches and tagsで **Selected branches and tags** を選び、Branchの **main** だけを許可します。OIDCの信頼ポリシーは GitHub が送る `sub`（例: `repo:42shina@160340038/portfolio@1387463809:environment:production`）に限定しているため、環境側のブランチ制限も設定してください。GitHubプランによって利用可能な保護ルールが異なります。オーナー／リポジトリの数値 ID は CloudTrail の `AssumeRoleWithWebIdentity` か GitHub API で確認し、`terraform.tfvars` の `github_owner_id` / `github_repository_id` に設定します。
 
 ## 2. AWSにデプロイ用IAMロールを作成
 
@@ -31,7 +31,9 @@ aws iam list-open-id-connect-providers
 `terraform.tfvars` の既存設定を維持して、次を追記します。
 
 ```hcl
-github_repository = "42shina/portfolio"
+github_repository    = "42shina/portfolio"
+github_owner_id      = "160340038"
+github_repository_id = "1387463809"
 ```
 
 同じAWSアカウントに `token.actions.githubusercontent.com` のOIDC providerがすでにある場合は、そのARNも追記します。別のTerraform stateが管理するproviderを新しく作成・importしません。
@@ -96,7 +98,7 @@ S3の削除同期は行いません。旧HTMLが参照するJS/CSSを残して�
 ## よくある失敗
 
 - **deployがSkipped**: main上の実行か、Repository variableの `DEPLOY_ENABLED` が文字列 `true` か確認します。
-- **OIDCの認証エラー**: リポジトリ名の大文字小文字、`production` の名前、ロールARN、providerのAudienceを確認します。組織でOIDCのsubjectをカスタマイズしている場合は、信頼ポリシーの `sub` をその形式に合わせます。
+- **OIDCの認証エラー**: `production` の名前、ロールARN、providerのAudience、`sub` が GitHub 送信形式（`repo:owner@owner_id/repo@repo_id:environment:production`）と一致するかを確認します。CloudTrail の `userName` が実際の `sub` です。`configure-aws-credentials` がセッションタグを付けるため、信頼ポリシーには `sts:AssumeRoleWithWebIdentity` に加えて `sts:TagSession` も必要です。
 - **S3 / CloudFrontのAccessDenied**: Variablesのバケット・distributionが、このTerraform stateの出力と一致しているか確認します。
 - **Terraformのロックファイルエラー**: ローカルで依存変更を確認し、必要なら `terraform providers lock -platform=linux_amd64` を実行して `.terraform.lock.hcl` をコミットします。
 - **無効化の待機タイムアウト**: CloudFront側で進行状況を確認します。アップロード済みなので、配信ジョブの失敗がそのままサイト停止を意味するわけではありません。
