@@ -29,7 +29,19 @@ npm run dev
 
 `skillsTitle` / `skillGroups` で対応範囲を管理します。各グループには `description`、各スキルには経験の場を示す `context`、担当作業の `works`、根拠や相談条件の `evidence`、任意の事例リンク `href` を記載します。経過年数によるスキルバーは使用しません。
 
-トップの対応業務は `hero.json` の `services`、作品カードの課題・対応・担当は作品JSONの `highlights`、職歴の担当領域は `career.json` の `responsibilities`、副業の条件は `contact.json` の `conditions` で更新します。実務の具体的な担当機能・担当範囲は `career.json` の「実務での担当実績」に掲載しています。希望業務はWebアプリ開発、稼働は週16時間程度、稼働・連絡時間帯は土日8:00〜17:00（日本時間）です。改善成果の数値や各実績と勤務先の対応は、本人に確認できたものだけを追記してください。CozyCtrlの所属人数は実利用者数と分け、削減時間・費用の実測値や実画面は確認できたものだけを追加します。
+トップの対応業務は `hero.json` の `services`、作品カードの課題・対応などは作品JSONの `highlights`、職歴の担当領域は `career.json` の `responsibilities`、ご依頼の条件は `contact.json` の `conditions` で更新します。実務の具体的な担当機能・担当範囲は `career.json` の「実務での担当実績」に掲載しています。希望業務はWebアプリ開発、稼働は週16時間未満、主な対応は土日祝日と平日夜、平日日中はチャットと短時間のお打ち合わせのみです。改善成果の数値や各実績と勤務先の対応は、本人に確認できたものだけを追記してください。CozyCtrlの所属人数は実利用者数と分け、削減時間・費用の実測値や実画面は確認できたものだけを追加します。
+
+## ポートフォリオ・職務経歴書のPDF出力
+
+「実務での担当実績」は `career.json` の `points` に1実績ずつ記載します。`period` はこの項目では実績名、`text` は担当内容、`responsibilities` の「ポジション」は担当した役割です。各実績の `skills` に `{ "name": "React", "kind": "frontend" }` の形式で使用技術を追加できます（`kind` は `frontend` / `backend` / `infra`）。空の `skills` は表示されません。仮置きの使用技術には `skillsProvisional: true` を付けると、サイトと職務経歴書に「使用技術（仮・要確認）」と表示されます。内容を確認・修正したら、このフラグを削除するか `false` にしてください。
+
+トップページの「ポートフォリオをPDFで保存」を押すと、元のサイトをブラウザの印刷機能でPDF保存できます。サイトの配色・図・掲載内容を使い、印刷時には保存ボタンを非表示にします。職務経歴書は専用ページ（`/documents/resume/`）の「PDFに保存 / 印刷」から保存します。旧 `/documents/portfolio/` はトップページへ移動します。
+
+印刷画面で保存先を「PDFに保存」、用紙をA4に設定してください。ヘッダーとフッターをオフにするとURLや日付を省けます。背景色が出ない場合は「背景のグラフィック」を有効にしてください。PDFファイルの自動ダウンロードではなく、ブラウザの印刷機能を使います。
+
+情報源は既存の `src/content/` のJSONです。職務経歴書の氏名表記は `brand.json`、職務要約は `hero.json` の `intro`、職歴・担当実績・学歴・資格は `career.json`、希望条件・連絡先は `contact.json` を参照します。JSONにない氏名・勤務先名・実績数値は補完しません。
+
+サイトの印刷用スタイルは `src/styles.css`、職務経歴書は `src/components/DocumentPage.jsx` と `src/components/documents.css` で管理します。開発中はJSONの更新も自動反映されます。
 
 ## ルーティングの検証
 

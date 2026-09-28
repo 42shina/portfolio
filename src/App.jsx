@@ -1,4 +1,6 @@
 import content from './content';
+import ConditionContent from './components/ConditionContent.jsx';
+import PrintButton from './components/PrintButton.jsx';
 import { Footer, Header } from './components/Layout.jsx';
 import ProjectCard from './components/ProjectCard.jsx';
 import SkillGroups from './components/SkillGroups.jsx';
@@ -7,16 +9,10 @@ import SkillGroups from './components/SkillGroups.jsx';
 function HeroArt({ hero }) {
   return (
     <div className="hero-art" aria-hidden="true">
+      <img className="hero-art-image" src={hero.artImage} alt="" />
       <div className="art-meta">
         <span>{hero.artMeta}</span>
         <span>FIG. 01</span>
-      </div>
-      <div className="orbit orbit-one" />
-      <div className="orbit orbit-two" />
-      <div className="sculpture">
-        <div className="arch" />
-        <div className="sphere" />
-        <div className="block" />
       </div>
       <div className="art-caption">
         <span className="tiny-cross">+</span>
@@ -69,11 +65,6 @@ function Work({ heading, projects }) {
           <p className="eyebrow">{heading.eyebrow}</p>
           <h2 id="work-title">{heading.title}</h2>
         </div>
-        <p className="section-note">
-          {heading.notePrefix}
-          {projects.length}
-          {heading.noteSuffix}
-        </p>
       </div>
       <div className="project-grid">
         {projects.map((project) => (
@@ -136,7 +127,9 @@ function Career({ career }) {
                           ))}
                         </dl>
                       )}
-                      {point.skills?.length > 0 && (
+                      {item.title !== '職歴' && point.skills?.length > 0 && (
+                        <div>
+                        {point.skillsProvisional && <p className="career-skills-note">使用技術（仮・要確認）</p>}
                         <ul className="tags career-skills" aria-label="使用スキル">
                           {point.skills.map((skill) => (
                             <li key={skill.name} className={`skill-tag skill-${skill.kind}`}>
@@ -144,6 +137,7 @@ function Career({ career }) {
                             </li>
                           ))}
                         </ul>
+                        </div>
                       )}
                     </div>
                   </li>
@@ -175,7 +169,7 @@ function Contact({ contact }) {
       <p>{contact.description}</p>
       <dl className="contact-conditions">
         {contact.conditions.map((condition) => (
-          <div key={condition.label}><dt>{condition.label}</dt><dd>{condition.text}</dd></div>
+          <div key={condition.label}><dt>{condition.label}</dt><dd><ConditionContent condition={condition} /></dd></div>
         ))}
       </dl>
       <div className="contact-links">
@@ -188,7 +182,10 @@ function Contact({ contact }) {
               ? { target: '_blank', rel: 'noopener noreferrer' }
               : {})}
           >
-            {link.label} <span aria-hidden="true">{link.href.startsWith('mailto:') ? '→' : '↗'}</span>
+            {link.href.startsWith('mailto:')
+              ? link.href.replace(/^mailto:/, '')
+              : link.label}{' '}
+            <span aria-hidden="true">{link.href.startsWith('mailto:') ? '→' : '↗'}</span>
           </a>
         ))}
       </div>
@@ -207,6 +204,14 @@ export default function App() {
         <Work heading={content.work} projects={content.projects} />
         <About about={content.about} />
         <Career career={content.career} />
+        <section className="document-downloads wrap" aria-labelledby="documents-title">
+          <h2 id="documents-title">PDFで保存</h2>
+          <p>このサイトをPDFで保存できます。印刷画面で「PDFに保存」を選択してください。職務経歴書は専用ページから保存できます。</p>
+          <div>
+            <PrintButton label="ポートフォリオをPDFで保存" />
+            <a className="button" href="/documents/resume/">職務経歴書を開く →</a>
+          </div>
+        </section>
         <Contact contact={content.contact} />
       </main>
       <Footer footer={content.footer} />

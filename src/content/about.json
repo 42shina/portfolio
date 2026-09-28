@@ -5,18 +5,18 @@
     "経験とともに。"
   ],
   "paragraphs": [
-    "得意なのは、日々の運用で生じる手作業を、Webアプリや管理ツールの機能にすることです。CozyCtrlでは、出欠の目視確認や表計算での編成という課題から、Bot・管理画面・API・インフラまで自分で設計・実装しました。",
-    "実務での開発経験と個人開発の事例を分けて紹介しています。既存システムの仕様や必要な運用水準を確認したうえで、担当範囲を相談します。"
+    "柔軟かつ使いやすいシステムに重点を置いています。画面・API・インフラまで通して設計・実装し、変わる要件にも現場の運用に馴染む形で応えます。",
+    "実務での開発経験と個人開発の事例を分けて紹介しています。システムの仕様や必要な運用水準を確認したうえで、担当範囲を相談します。"
   ],
   "skillsTitle": "作業から見るスキルと対応範囲",
   "skillGroups": [
     {
       "id": "primary",
-      "title": "主担当として取り組む領域",
+      "title": "主担当として取り組める領域\n(開発メンバーも可能)",
       "description": "個人開発で設計・実装を通して担当した作業を中心にしています。",
       "items": [
         {
-          "name": "React / TypeScript",
+          "name": "TypeScript / React",
           "kind": "frontend",
           "context": "実務・個人開発",
           "works": [
@@ -36,12 +36,31 @@
           ],
           "evidence": "CozyCtrl：Botによる情報収集からWebアプリへの連携まで。",
           "href": "/projects/cozyctrl/"
+        },
+        {
+          "name": "Docker",
+          "kind": "infra",
+          "context": "個人開発の事例：CozyCtrl",
+          "works": [
+            "ローカル開発環境・本番環境の構築",
+            "データベースの設計・管理"
+          ],
+          "evidence": "開発環境は指定がなければDockerを使用し構築しています。本番へのデプロイも可能。"
+        },
+        {
+          "name": "MySQL",
+          "kind": "infra",
+          "context": "個人開発の事例：CozyCtrl",
+          "works": [
+            "データベースの設計・管理"
+          ],
+          "evidence": "SQLについては特にこだわりがなく初めて使ったMySQLを使い続けています。"
         }
       ]
     },
     {
       "id": "scope",
-      "title": "要件に合わせて範囲を相談",
+      "title": "要件に合わせて範囲を相談\n(開発メンバーから小規模な主担当)",
       "description": "対象システムや利用規模、運用要件を確認して進める領域です。",
       "items": [
         {
@@ -52,7 +71,18 @@
             "画面の設計・実装",
             "業務Webアプリケーション・Web APIの実装"
           ],
-          "evidence": "E-Learningシステムの開発で使用。"
+          "evidence": "E-Learningシステムの開発で使用。Laravel等のフレームワーク環境やWordPressのカスタマイズについて即日の案件には対応できません。"
+        },
+        {
+          "name": "Java / Maven / Keycloak",
+          "kind": "backend",
+          "context": "実務",
+          "works": [
+            "Keycloakのカスタマイズ",
+            "AWS SESとの連携",
+            "ユーザー管理のUIのカスタマイズ"
+          ],
+          "evidence": "Keycloakのカスタマイズは実務での経験があります。Maven環境のみの経験になります。"
         },
         {
           "name": "AWS / Terraform",
@@ -62,35 +92,25 @@
             "CloudFront / Lambda / Auroraを使う構成の検討・実装",
             "TerraformによるS3 / CloudFront配信構成の定義"
           ],
-          "evidence": "公開事例は小規模サービスが中心。可用性や監視、保守の要件は個別に相談。",
+          "evidence": "実務経験は小・中規模サービスが中心です。",
           "href": "/projects/cozyctrl/"
-        },
-        {
-          "name": "Docker / MySQL",
-          "kind": "infra",
-          "context": "個人開発の事例：CozyCtrl",
-          "works": [
-            "ローカル開発環境・本番環境の構築",
-            "データベースの設計・管理"
-          ],
-          "evidence": "既存環境への導入や移行は、現状とデータの扱いを確認して相談。"
         }
       ]
     },
     {
       "id": "exploration",
-      "title": "学習・個人の取り組み",
+      "title": "学習・個人の取り組みのみ (開発メンバー)",
       "description": "業務の対応範囲とは分けて、取り組んでいる内容を紹介します。",
       "items": [
         {
-          "name": "Python / データ分析",
+          "name": "Python / Django",
           "kind": "backend",
           "context": "Kaggle・個人の取り組み",
           "works": [
             "Kaggleのデータ分析",
             "DjangoによるWeb APIの実装"
           ],
-          "evidence": "分析業務の受託範囲は、求められる成果と専門性を確認して相談。"
+          "evidence": "分析業務の受託範囲は、求められる成果と専門性を確認して相談。開発メンバーのみとしての参画のみ可能です。"
         }
       ]
     }

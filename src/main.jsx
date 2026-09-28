@@ -2,13 +2,20 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.jsx';
 import ProjectPage from './components/ProjectPage.jsx';
+import DocumentPage from './components/DocumentPage.jsx';
 import content from './content';
 import './styles.css';
 
 const root = document.getElementById('root');
 const projectMatch = window.location.pathname.match(/^\/projects\/([^/]+)(?:\/index\.html|\/)?$/);
+const documentMatch = window.location.pathname.match(/^\/documents\/(portfolio|resume)(?:\/index\.html|\/)?$/);
 
-if (projectMatch) {
+if (documentMatch?.[1] === 'portfolio') {
+  window.location.replace('/');
+} else if (documentMatch) {
+  document.title = `${documentMatch[1] === 'resume' ? '職務経歴書' : 'ポートフォリオ'} | ${content.brand}`;
+  createRoot(root).render(<DocumentPage type={documentMatch[1]} />);
+} else if (projectMatch) {
   const project = content.projects.find((item) => item.id === projectMatch[1]);
   if (!project) {
     window.location.replace('/404.html');

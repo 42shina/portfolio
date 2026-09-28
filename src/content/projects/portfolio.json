@@ -6,11 +6,11 @@
   "visualLabel": "PORTFOLIO / SITE STRUCTURE",
   "visualDescription": "このポートフォリオサイトのページ構成を表したイメージ図",
   "wide": true,
-  "description": "作品の背景と担当範囲を伝えるReact製サイト。トップは一覧、作品ごとに詳細ページを分け、コンテンツをJSONで管理し、S3とCloudFrontへの配信構成をTerraformで定義しています。",
+  "description": "ソースコードをGitHubで公開しているReact製のポートフォリオ。トップは一覧、作品ごとに詳細ページを分け、コンテンツをJSONで管理し、S3とCloudFrontへの配信構成をTerraformで定義しています。",
   "details": [
     {
       "label": "背景",
-      "text": "自分のこれまでの活動や経験をまとめたいと思い、ポートフォリオサイトを作成しました。"
+      "text": "自分のこれまでの活動や経験をまとめたいと思い、ポートフォリオサイトを作成しました。構成や実装を他の人にも参照してもらえるよう、ソースコードはOSSとしてGitHubで公開しています。"
     },
     {
       "label": "課題と工夫",
@@ -18,11 +18,12 @@
     },
     {
       "label": "成果・学び",
-      "text": "安価で手軽に更新できるブログ等における最低限のAWS構成を学びました。"
+      "text": "安価で手軽に更新できる静的サイト向けの、最低限のAWS構成を学びました。公開リポジトリとして読まれる前提で、認証情報を含めない運用にも気を配っています。"
     }
   ],
   "tags": [
     { "name": "React", "kind": "frontend" },
+    { "name": "JavaScript", "kind": "frontend" },
     { "name": "Terraform", "kind": "infra" },
     { "name": "AWS S3 / CloudFront", "kind": "infra" }
   ],
@@ -34,7 +35,17 @@
     }
   ],
   "link": {
-    "label": "サイトを見る",
-    "href": "/"
-  }
+    "label": "GitHubで見る",
+    "href": "https://github.com/42shina/portfolio"
+  },
+  "highlights": [
+    {
+      "label": "公開",
+      "text": "ソースコードをGitHubでOSSとして公開。"
+    },
+    {
+      "label": "構成",
+      "text": "コンテンツはJSON管理。配信はS3 + CloudFrontをTerraformで定義。"
+    }
+  ]
 }

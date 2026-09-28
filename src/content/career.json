@@ -9,12 +9,6 @@
         {
           "period": "2023年 — 2024年",
           "text": "東京のベンチャー企業で、フロントエンドエンジニアとしてWebアプリケーションを開発。",
-          "skills": [
-            {
-              "name": "React / TypeScript",
-              "kind": "frontend"
-            }
-          ],
           "responsibilities": [
             {
               "label": "担当領域",
@@ -24,25 +18,7 @@
         },
         {
           "period": "2024年 — 現在",
-          "text": "札幌のIT企業で、E-Learningシステムの開発に従事。",
-          "skills": [
-            {
-              "name": "React / TypeScript",
-              "kind": "frontend"
-            },
-            {
-              "name": "PHP",
-              "kind": "frontend"
-            },
-            {
-              "name": "Rust",
-              "kind": "backend"
-            },
-            {
-              "name": "AWS",
-              "kind": "infra"
-            }
-          ],
+          "text": "札幌のIT企業で、E-Learningを中心としたシステムの開発に従事。",
           "responsibilities": [
             {
               "label": "担当領域",
@@ -60,30 +36,117 @@
       "title": "実務での担当実績",
       "points": [
         {
-          "period": "担当機能・アプリ",
-          "text": "認証基盤・マスタAPI・学習アプリの開発をフルスタックで担当。AIを用いたテストアプリではフロントエンド開発を担当しました。",
+          "period": "認証基盤",
+          "text": "認証基盤の開発でkeycloakのカスタマイズを担当。AWS SESとの連携やユーザーの認証リセット周りの機能を顧客の要望に合わせて実装。ユーザー管理に必要な機能のみを露出した独自のUIを作成。",
           "responsibilities": [
             {
-              "label": "認証基盤",
-              "text": "認証基盤の開発をフルスタックで担当。"
-            },
-            {
-              "label": "マスタAPI",
-              "text": "マイクロサービスアプリにおけるマスタAPIの開発を担当。フルスタックで開発に従事。"
-            },
-            {
-              "label": "動画学習アプリ",
-              "text": "フロントエンド・バックエンドの両方を担当し、動画学習アプリを開発。"
-            },
-            {
-              "label": "研修アプリ",
-              "text": "フロントエンド・バックエンドの両方を担当し、研修アプリを開発。"
-            },
-            {
-              "label": "AIを用いたテストアプリ",
-              "text": "フロントエンド開発を担当。"
+              "label": "ポジション",
+              "text": "主担当 (1人 + 取引先のインフラエンジニアがAWSを担当)"
             }
-          ]
+          ],
+          "skills": [
+            {
+              "name": "React / TypeScript",
+              "kind": "frontend"
+            },
+            {
+              "name": "Keycloak / Java",
+              "kind": "backend"
+            },
+            {
+              "name": "MySQL",
+              "kind": "infra"
+            }
+          ],
+          "skillsProvisional": false
+        },
+        {
+          "period": "マスタAPI",
+          "text": "マイクロサービスアプリにおけるマスタAPIの開発を担当。各マイクロサービスとAPI間の認証や呼び出し許可カラムを追加し、機密性と利便性を両立させたAPIを作成。",
+          "responsibilities": [
+            {
+              "label": "ポジション",
+              "text": "主担当 (1人 + 取引先のインフラエンジニアがAWSを担当)"
+            }
+          ],
+          "skills": [
+            {
+              "name": "Rust",
+              "kind": "backend"
+            },
+            {
+              "name": "MySQL",
+              "kind": "infra"
+            }
+          ],
+          "skillsProvisional": false
+        },
+        {
+          "period": "動画学習アプリ",
+          "text": "フロントエンド・バックエンドの両方を担当し、動画学習アプリを開発。UIの改善と一部機能の追加に貢献",
+          "responsibilities": [
+            {
+              "label": "ポジション",
+              "text": "開発メンバー (2人)"
+            }
+          ],
+          "skills": [
+            {
+              "name": "JavaScript",
+              "kind": "frontend"
+            },
+            {
+              "name": "PHP",
+              "kind": "backend"
+            },
+            {
+              "name": "MySQL",
+              "kind": "infra"
+            }
+          ],
+          "skillsProvisional": false
+        },
+        {
+          "period": "研修アプリ",
+          "text": "フロントエンド・バックエンドの両方を担当し、研修アプリを開発。",
+          "responsibilities": [
+            {
+              "label": "ポジション",
+              "text": "開発メンバー (2人)"
+            }
+          ],
+          "skills": [
+            {
+              "name": "JavaScript",
+              "kind": "frontend"
+            },
+            {
+              "name": "PHP",
+              "kind": "backend"
+            },
+            {
+              "name": "MySQL",
+              "kind": "infra"
+            }
+          ],
+          "skillsProvisional": false
+        },
+        {
+          "period": "AIを用いたテストアプリ",
+          "text": "フロントエンド開発を担当。",
+          "responsibilities": [
+            {
+              "label": "ポジション",
+              "text": "開発メンバー (フロントエンドチーム10人, 総勢30人)"
+            }
+          ],
+          "skills": [
+            {
+              "name": "React / TypeScript",
+              "kind": "frontend"
+            }
+          ],
+          "skillsProvisional": false
         }
       ]
     },

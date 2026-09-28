@@ -31,6 +31,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(rootDir, 'index.html'),
+        portfolioDocument: resolve(rootDir, 'documents/portfolio/index.html'),
+        resumeDocument: resolve(rootDir, 'documents/resume/index.html'),
         ...projectInputs,
       },
     },

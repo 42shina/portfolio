@@ -1,0 +1,37 @@
+.document-toolbar{max-width:210mm;margin:24px auto;padding:0 20px;display:flex;align-items:center;flex-wrap:wrap;gap:16px;font-size:13px}
+.document-toolbar p{flex-basis:100%;margin:0;line-height:1.8}
+.document-toolbar a{text-decoration:underline;text-underline-offset:4px}
+.document-toolbar button{border:0;cursor:pointer;font:inherit;margin-left:auto}
+.document-toolbar button:disabled{opacity:.6;cursor:wait}
+.document-toolbar button:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.document-paper{width:210mm;max-width:calc(100% - 32px);margin:0 auto 40px;padding:16mm;background:white;color:#202b25;box-shadow:0 4px 24px #25352f12;font-size:10pt;line-height:1.8;overflow-wrap:anywhere}
+.document-heading{border-bottom:2px solid #476e52;display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding-bottom:6mm;margin-bottom:7mm}
+.document-paper h1{font-size:24pt;letter-spacing:.02em;line-height:1.4;margin:0}
+.document-heading p{font-size:14pt;margin:0}
+.document-paper h2{font-size:14pt;letter-spacing:0;line-height:1.6;margin:7mm 0 3mm;border-bottom:1px solid #b9c4bc;padding-bottom:2mm}
+.document-paper h3{font-size:11pt;margin:4mm 0 1mm}
+.document-paper h4{font-size:10pt;margin:0}
+.document-paper h4 span{font-weight:400}
+.document-paper p{margin:2mm 0}
+.document-item{margin:3mm 0 4mm}
+.document-entries{margin:3mm 0}
+.document-entries>div{margin:0 0 3mm}
+.document-entries dt{font-weight:700}
+.document-entries dt::before{content:"・"}
+.document-entries dd{margin:0;white-space:pre-line}
+.document-paper a{text-decoration:underline;text-underline-offset:3px}
+.document-paper figure{margin:5mm 0}
+.document-paper img{display:block;width:100%;height:auto;max-height:105mm;object-fit:contain}
+.document-paper figcaption{font-size:8pt;margin-top:2mm}
+@media screen and (max-width:640px){.document-paper{padding:24px 18px}.document-paper h1{font-size:21px}.document-toolbar button{margin-left:0}.document-heading{gap:12px}}
+@page{size:A4;margin:15mm}
+@media print{
+  html,body{background:white}
+  .document-toolbar{display:none}
+  .document-paper{width:auto;max-width:none;margin:0;padding:0;box-shadow:none;font-size:10pt}
+  .document-paper h1,.document-paper h2,.document-paper h3,.document-paper h4,.document-entries dt{break-after:avoid}
+  .document-paper p,.document-paper dd{orphans:3;widows:3}
+  .document-item,.document-entries>div,.document-paper figure{break-inside:avoid}
+  .document-project{break-before:page}
+  .document-project>h2:first-child{margin-top:0}
+}
