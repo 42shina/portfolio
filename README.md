@@ -68,7 +68,7 @@ npm run resume:pdf -- --output .private/application.pdf
 
 別の.envファイルを使う場合は `npm run resume:pdf -- --env-file .private/resume.env` を実行します。以前の `--name` / `--email` と `--profile .private/resume.json` も使えます。値の優先順位は **CLI引数 > JSON設定 > シェル環境変数 > .env** です。`--help` で使い方を表示できます。
 
-既存のPDFを上書きする場合は `--force` を付けます。Linuxでブラウザのシステムライブラリが不足する場合は `npx playwright install --with-deps chromium` を実行してください。インストール済みのChrome/Chromiumを使う場合は `--browser /path/to/chrome` も指定できます。
+出力先にPDFがある場合は常に上書きします。`--force` の指定は不要です。Linuxでブラウザのシステムライブラリが不足する場合は `npx playwright install --with-deps chromium` を実行してください。インストール済みのChrome/Chromiumを使う場合は `--browser /path/to/chrome` も指定できます。
 
 公開サイトと同じ職務経歴書コンポーネント・コンテンツ・15mmの余白を使い、生成時だけ氏名とメールアドレスを差し替えます。氏名・メールアドレスを公開JSON・ビルド成果物に書き込まず、ブラウザから外部への通信も行いません。`.private/` はGit管理から除外しています。リポジトリ内の出力先は `.private/` 配下に限定し、配信用の `site/` や `public/` への保存を拒否します。リポジトリ外のローカルフォルダーも `--output` で指定できます。
 

@@ -61,7 +61,8 @@ async function main() {
     name: { type: 'string' }, email: { type: 'string' }, profile: { type: 'string' },
     'env-file': { type: 'string' },
     output: { type: 'string', default: '.private/resume.pdf' },
-    browser: { type: 'string' }, force: { type: 'boolean', default: false },
+    browser: { type: 'string' },
+    force: { type: 'boolean' }, // Accept the old flag for compatibility; overwrite is now the default.
     help: { type: 'boolean', short: 'h' },
   } });
   if (values.help) {
@@ -75,9 +76,9 @@ npm run resume:pdf -- --env-file .private/resume.env
 
 --env-file PATH 読み込む.envファイル（既定: リポジトリ直下の.env）
 --output PATH  保存先（既定: .private/resume.pdf）
---force        既存のPDFを上書き
 --browser PATH インストール済みChrome/Chromiumの実行ファイル
 
+既存のPDFは常に上書きします。
 設定ファイル: { "name": "氏名", "email": "name@example.com" }
 優先順位: CLI引数 > JSON設定 > シェル環境変数 > .env。
 個人情報の変数名に VITE_ は付けないでください。
@@ -107,9 +108,8 @@ Linuxで必要な場合は npx playwright install --with-deps chromium を使い
   } finally { await browser.close(); }
   await mkdir(dirname(output), { recursive: true, mode: 0o700 });
   try {
-    await writeFile(output, pdf, { flag: values.force ? 'w' : 'wx', mode: 0o600 });
-  } catch (error) {
-    if (error.code === 'EEXIST') throw new Error('出力先にPDFが存在します。上書きする場合は --force を指定してください。');
+    await writeFile(output, pdf, { flag: 'w', mode: 0o600 });
+  } catch {
     throw new Error('PDFを保存できません。出力先の権限を確認してください。');
   }
   console.log('職務経歴書PDFを保存しました。');
