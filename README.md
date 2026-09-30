@@ -37,11 +37,52 @@ npm run dev
 
 トップページの「ポートフォリオをPDFで保存」を押すと、元のサイトをブラウザの印刷機能でPDF保存できます。サイトの配色・図・掲載内容を使い、印刷時には保存ボタンを非表示にします。職務経歴書は専用ページ（`/documents/resume/`）の「PDFに保存 / 印刷」から保存します。旧 `/documents/portfolio/` はトップページへ移動します。
 
-印刷画面で保存先を「PDFに保存」、用紙をA4に設定してください。ヘッダーとフッターをオフにするとURLや日付を省けます。背景色が出ない場合は「背景のグラフィック」を有効にしてください。PDFファイルの自動ダウンロードではなく、ブラウザの印刷機能を使います。
+印刷画面で保存先を「PDFに保存」、用紙をA4、余白を「既定」に設定してください。`src/styles.css` の共通 `@page` 設定で、ポートフォリオ・職務経歴書ともに各ページの四辺に15mmの白い余白を確保します。「余白なし」やカスタム余白を指定するとブラウザ側の設定が優先される場合があるため、「既定」に戻してください。ヘッダーとフッターをオフにするとURLや日付を省けます。背景色が出ない場合は「背景のグラフィック」を有効にしてください。PDFファイルの自動ダウンロードではなく、ブラウザの印刷機能を使います。
 
 情報源は既存の `src/content/` のJSONです。職務経歴書の氏名表記は `brand.json`、職務要約は `hero.json` の `intro`、職歴・担当実績・学歴・資格は `career.json`、希望条件・連絡先は `contact.json` を参照します。JSONにない氏名・勤務先名・実績数値は補完しません。
 
 サイトの印刷用スタイルは `src/styles.css`、職務経歴書は `src/components/DocumentPage.jsx` と `src/components/documents.css` で管理します。開発中はJSONの更新も自動反映されます。
+
+## 非公開の氏名・メールアドレスを入れた職務経歴書をCLIで生成
+
+Node.js 22以上で、リポジトリのルートから実行します。初回に依存関係とPDF生成用のChromiumをインストールしてください。
+
+```bash
+npm ci
+npx playwright install chromium
+```
+
+リポジトリ直下の `.env` に氏名とメールアドレスを設定します。新しい環境では `.env.example` をコピーしてください。既存の `.env` がある場合は、以下の2項目を追記します。
+
+```dotenv
+RESUME_NAME="山田 太郎"
+RESUME_EMAIL="taro@example.com"
+```
+
+```bash
+npm run resume:pdf
+npm run resume:pdf -- --output .private/application.pdf
+```
+
+`.private/resume.pdf` が生成されます。CLIは `.env` を直接読み込みます。`source .env` やDocker Composeの `env_file` 設定は不要です。変数名に `VITE_` を付けないでください。`.env` はGit管理から除外され、設定値を公開ビルドのクライアントデータへ渡しません。
+
+別の.envファイルを使う場合は `npm run resume:pdf -- --env-file .private/resume.env` を実行します。以前の `--name` / `--email` と `--profile .private/resume.json` も使えます。値の優先順位は **CLI引数 > JSON設定 > シェル環境変数 > .env** です。`--help` で使い方を表示できます。
+
+既存のPDFを上書きする場合は `--force` を付けます。Linuxでブラウザのシステムライブラリが不足する場合は `npx playwright install --with-deps chromium` を実行してください。インストール済みのChrome/Chromiumを使う場合は `--browser /path/to/chrome` も指定できます。
+
+公開サイトと同じ職務経歴書コンポーネント・コンテンツ・15mmの余白を使い、生成時だけ氏名とメールアドレスを差し替えます。氏名・メールアドレスを公開JSON・ビルド成果物に書き込まず、ブラウザから外部への通信も行いません。`.private/` はGit管理から除外しています。リポジトリ内の出力先は `.private/` 配下に限定し、配信用の `site/` や `public/` への保存を拒否します。リポジトリ外のローカルフォルダーも `--output` で指定できます。
+
+Dockerで開発している場合は、コンテナ内にChromiumを用意して実行できます。生成したファイルをWSLの自分のユーザーで読み書きできるよう、生成時にはユーザーIDを指定します。
+
+```bash
+docker compose exec portfolio npm ci
+docker compose exec -e PLAYWRIGHT_BROWSERS_PATH=/tmp/resume-browsers portfolio npx playwright install --with-deps chromium
+docker compose exec --user "$(id -u):$(id -g)" -e PLAYWRIGHT_BROWSERS_PATH=/tmp/resume-browsers portfolio npm run resume:pdf
+```
+
+PDF生成用のViteキャッシュはOSの一時フォルダーに実行ごとに作成し、終了時に削除します。開発サーバーの `node_modules/.vite` キャッシュを共有しないため、Docker内のキャッシュ所有者が異なっても生成できます。
+
+Chromiumのインストールはコンテナを作り直した場合にも必要です。公開サイトのビルド・配信は通常どおり `npm run build` で行います。
 
 ## ルーティングの検証
 

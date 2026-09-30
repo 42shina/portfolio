@@ -22,9 +22,11 @@
 
 .document-downloads{padding-block:36px 52px;border-top:1px solid var(--line)}.document-downloads h2{font-size:24px}.document-downloads p{font-size:13px;line-height:1.9;color:var(--muted)}.document-downloads>div{display:flex;flex-wrap:wrap;gap:16px;margin-top:20px}
 .print-button{border:0;font-family:inherit;cursor:pointer}.print-button:disabled{opacity:.6;cursor:wait}.print-button:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+/* Repeat the margin on every printed page, including automatic page breaks. */
+@page{size:A4;margin:15mm}
 @media print{
+  html,body{background:white}
   body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  body:has(.document-downloads){background:var(--paper)}
   .document-downloads,.skip-link{display:none!important}
   .wrap{width:100%}
   .header{height:70px}

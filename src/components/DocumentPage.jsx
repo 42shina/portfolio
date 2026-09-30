@@ -22,19 +22,23 @@ function Career() {
   </section>);
 }
 
-export default function DocumentPage() {
+export default function DocumentPage({ identity, printOnly = false } = {}) {
+  const links = identity
+    ? [...content.contact.links.filter((link) => !link.href.startsWith('mailto:')),
+      { label: 'メールアドレス', href: `mailto:${identity.email}` }]
+    : content.contact.links;
   return <div className="document-view">
-    <div className="document-toolbar">
+    {!printOnly && <div className="document-toolbar">
       <a href="/">← ホームへ戻る</a>
       <PrintButton />
-      <p>印刷画面で保存先を「PDFに保存」、用紙を「A4」に設定してください。ヘッダーとフッターをオフにすると、URLや日付を省けます。</p>
-    </div>
+      <p>印刷画面で保存先を「PDFに保存」、用紙を「A4」、余白を「既定」に設定してください。各ページに15mmの余白を設けています。ヘッダーとフッターをオフにすると、URLや日付を省けます。</p>
+    </div>}
     <main className="document-paper">
-      <header className="document-heading"><h1>職務経歴書</h1><p>{content.brand}</p></header>
+      <header className="document-heading"><h1>職務経歴書</h1><p>{identity?.name ?? content.brand}</p></header>
       <section><h2>職務要約</h2><p>{content.hero.intro}</p></section>
       <Career />
       <section><h2>希望条件・連絡先</h2><Entries entries={content.contact.conditions} />
-        {content.contact.links.map((link) => {
+        {links.map((link) => {
           const value = link.href.replace(/^mailto:/, '');
           return <p key={link.href}><a href={link.href}>{link.label}：{value}</a></p>;
         })}

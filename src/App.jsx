@@ -206,7 +206,7 @@ export default function App() {
         <Career career={content.career} />
         <section className="document-downloads wrap" aria-labelledby="documents-title">
           <h2 id="documents-title">PDFで保存</h2>
-          <p>このサイトをPDFで保存できます。印刷画面で「PDFに保存」を選択してください。職務経歴書は専用ページから保存できます。</p>
+          <p>このサイトをPDFで保存できます。印刷画面で「PDFに保存」、用紙「A4」、余白「既定」を選択してください。各ページに15mmの余白を設けています。ヘッダーとフッターをオフにすると、URLや日付を省けます。職務経歴書は専用ページから保存できます。</p>
           <div>
             <PrintButton label="ポートフォリオをPDFで保存" />
             <a className="button" href="/documents/resume/">職務経歴書を開く →</a>

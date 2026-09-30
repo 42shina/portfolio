@@ -16,3 +16,6 @@ site/
 *.tfvars
 *.tfvars.json
 !terraform.tfvars.example
+
+# Local identity settings and generated private documents
+.private/
