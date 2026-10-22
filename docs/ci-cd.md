@@ -4,6 +4,7 @@
 
 ## 実行される処理
 
+- `.node-version` のNode.js 22.23.4と `package.json` の `packageManager` のnpm 12.2.1を使用します。
 - PR、mainへのpush、Actions画面からの手動実行で `npm ci` → `npm test` → `npm run build` → Terraformのfmt/init/validateを実行します。
 - 検証済みの `site/` をartifactとして7日間保存します。
 - mainかつRepository variableの `DEPLOY_ENABLED` が `true` の場合だけ、検証成功後にproductionへ配信します。PRからは配信しません。

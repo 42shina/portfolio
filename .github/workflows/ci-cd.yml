@@ -20,8 +20,16 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-node@v6
         with:
-          node-version: '22'
+          node-version-file: .node-version
           cache: npm
+      - name: Use project npm version
+        run: npm install --global "$(node -p 'require("./package.json").packageManager')"
+      - name: Verify toolchain versions
+        run: |
+          node --version
+          npm --version
+          test "$(node --version)" = "v$(cat .node-version)"
+          test "npm@$(npm --version)" = "$(node -p 'require("./package.json").packageManager')"
       - run: npm ci
       - run: npm test
       - run: npm run build

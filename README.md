@@ -4,10 +4,10 @@ React/TypeScript/Viteで構築するポートフォリオと、非公開S3＋Clo
 
 ## Dockerでローカル表示（ホットリロード）
 
-リポジトリのルートで実行します。
+Node.js 22.23.4／npm 12.2.1を使います。`Dockerfile` でnpmをインストールするため、コンテナを作り直しても同じ版を使用できます。リポジトリのルートで実行します。
 
 ```bash
-docker compose up -d
+docker compose up -d --build
 ```
 
 ブラウザで http://localhost:8081 を開きます。`src/` や `src/content/` を編集すると自動で反映されます。停止するには `docker compose down` を実行します。
@@ -23,14 +23,17 @@ docker compose exec -T portfolio npm run build
 
 ## ローカル開発とコンテンツの更新
 
-Node.js 22以上を用意し、リポジトリのルートで実行します。
+Node.js 22.23.4（`.node-version`）とnpm 12.2.1（`package.json` の `packageManager`）を用意し、リポジトリのルートで実行します。CIもこの2つの設定を使います。
 
 ```bash
+npm install --global npm@12.2.1
 npm ci
 npm run dev
 ```
 
 `npm run typecheck` で型チェック、`npm test` でテストを実行します。`npm run build` は型チェック後に配信用ファイルをビルドし、 `site/` に生成します。`site/` は生成物なので直接編集しません。
+
+npm 12では依存パッケージのインストールスクリプトが既定でブロックされます。`package.json` の `allowScripts` で `esbuild@0.28.2` だけを許可しています。esbuild更新時はスクリプトを確認してから許可する版も更新してください。依存全体のスクリプトを一括許可する必要はありません。
 
 `src/` のReactコンポーネントと `vite.config.ts` はstrictモードのTypeScriptで管理し、コンテンツの共通型は `src/content/types.ts` に定義しています。Node.jsから直接実行する補助スクリプト（`.mjs`）とCloudFront Function（`.js`）は、それぞれの実行環境に合わせてJavaScriptのまま管理します。
 
@@ -56,7 +59,7 @@ npm run dev
 
 ## 非公開の氏名・メールアドレスを入れた職務経歴書をCLIで生成
 
-Node.js 22以上で、リポジトリのルートから実行します。初回に依存関係とPDF生成用のChromiumをインストールしてください。
+Node.js 22.23.4／npm 12.2.1で、リポジトリのルートから実行します。初回に依存関係とPDF生成用のChromiumをインストールしてください。
 
 ```bash
 npm ci

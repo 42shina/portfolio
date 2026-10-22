@@ -1,0 +1,5 @@
+# The development image only needs the toolchain metadata.
+# Source and dependencies are mounted by Compose at runtime.
+*
+!Dockerfile
+!package.json
