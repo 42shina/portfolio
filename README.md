@@ -37,6 +37,8 @@ Browser → CloudFront → private S3
 - **配信条件**：検証に成功し、mainを対象とするPR以外の実行で、配信が有効な場合（`DEPLOY_ENABLED=true`）に `production` 環境へデプロイします。同時デプロイは直列に処理します。
 - **配信方法**：検証済みのビルド成果物を使い、OIDCでAWSに認証します。JS・CSSなどのアセットを先に、参照元のHTMLを後にS3へアップロードし、CloudFrontのキャッシュ無効化が完了するまで待機します。
 
+毎日03:23 JSTにNode・npm・Dockerイメージ・プロジェクト依存を検査します。公開サマリーは重大度別件数のみとし、重大な検知や監視失敗でCIを失敗させます。詳細は [日次セキュリティ監視](docs/security-monitor.md) を参照してください。
+
 ## ローカル起動
 
 ```bash

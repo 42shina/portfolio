@@ -1,0 +1,39 @@
+name: Daily security monitor
+
+on:
+  schedule:
+    # 03:23 JST. Avoid the busiest top-of-hour schedule slots.
+    - cron: '23 18 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.node-version'
+      - 'Dockerfile'
+      - '.dockerignore'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'scripts/security-monitor/**'
+      - '.github/workflows/security-monitor.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: security-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+      - name: Check security and publish counts only
+        run: node scripts/security-monitor/monitor.mjs
