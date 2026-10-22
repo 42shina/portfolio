@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 
 export const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const levels = ['critical', 'high', 'moderate', 'low', 'unknown'];
-const phases = ['image-export', 'scanner-execution', 'scanner-permissions', 'scanner-database', 'scanner-storage', 'report-read', 'report-validation'];
+const phases = ['image-export', 'scanner-execution', 'scanner-permissions', 'scanner-database', 'scanner-storage', 'scanner-registry-rate-limit', 'scanner-registry-access', 'scanner-database-access', 'scanner-database-timeout', 'scanner-database-integrity', 'scanner-database-age', 'report-read', 'report-validation'];
 const targets = ['Project dependencies', 'npm CLI components', 'Development image', 'Node.js official security'];
 const normalize = severity => {
   const value = String(severity).toLowerCase();
@@ -153,7 +153,13 @@ export async function runChecks({ directory, execute = command, get = fetchData 
     } catch {
       if (phase === 'scanner-execution') {
         const error = await readFile(resolve(directory, 'image-scan.stderr'), 'utf8').catch(() => '');
-        if (/permission denied/i.test(error)) phase = 'scanner-permissions';
+        if (/toomanyrequests|pull rate limit/i.test(error)) phase = 'scanner-registry-rate-limit';
+        else if (/manifest unknown|authentication required|unauthorized/i.test(error)) phase = 'scanner-registry-access';
+        else if (/403|forbidden/i.test(error)) phase = 'scanner-database-access';
+        else if (/timeout|timed out|deadline exceeded/i.test(error)) phase = 'scanner-database-timeout';
+        else if (/checksum|hash mismatch/i.test(error)) phase = 'scanner-database-integrity';
+        else if (/too old|stale|max.*age/i.test(error)) phase = 'scanner-database-age';
+        else if (/permission denied/i.test(error)) phase = 'scanner-permissions';
         else if (/no space left/i.test(error)) phase = 'scanner-storage';
         else if (/database|download|update|rate.?limit|429/i.test(error)) phase = 'scanner-database';
       }
