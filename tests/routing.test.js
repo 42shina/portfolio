@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import vm from 'node:vm';
+import { fileURLToPath } from 'node:url';
 import test from 'node:test';
-import { transformWithEsbuild } from 'vite';
+import { build, transformWithEsbuild } from 'vite';
 
 const edge = vm.createContext({});
 vm.runInContext(readFileSync(new URL('../infra/functions/directory-index.js', import.meta.url), 'utf8'), edge);
@@ -78,4 +79,26 @@ test('request method, headers and query string survive the rewrite', () => {
   assert.equal(result.method, 'HEAD');
   assert.equal(result.headers.host.value, 'example.com');
   assert.equal(result.querystring.ref.value, 'card');
+});
+
+// Build in memory so the check exercises Vite's actual HTML/CSS processing
+// without relying on, or replacing, an existing site/ build.
+test('built 404 page references emitted CSS instead of an unprocessed source path', async () => {
+  const result = await build({
+    configFile: fileURLToPath(new URL('../vite.config.ts', import.meta.url)),
+    logLevel: 'silent',
+    build: { write: false },
+  });
+  const files = (Array.isArray(result) ? result : [result]).flatMap((bundle) => bundle.output);
+  const page = files.find((file) => file.type === 'asset' && file.fileName === '404.html');
+  assert.ok(page, '404.html must be processed as a Vite HTML entry');
+  const html = Buffer.from(page.source).toString('utf8');
+  const stylesheets = [...html.matchAll(/<link[^>]*rel="stylesheet"[^>]*href="([^"]+)"/g)];
+  assert.ok(stylesheets.length > 0, '404.html must load a stylesheet');
+  for (const [, href] of stylesheets) {
+    assert.match(href, /^\/assets\/.+\.css$/);
+    assert.ok(files.some((file) => file.type === 'asset' && file.fileName === href.slice(1)),
+      `stylesheet ${href} must exist in the build output`);
+  }
+  assert.equal(rewrite('/404.html'), '/404.html');
 });

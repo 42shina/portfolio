@@ -39,7 +39,7 @@ npm 12では依存パッケージのインストールスクリプトが既定�
 
 更新する文章や項目は `src/content/` のセクション別JSONで管理します。作品は `src/content/projects/` に1作品1ファイルで置き、`src/content/index.ts` に読み込みと表示順を追加するとカードが増えます。あわせて `src/projects/<id>/index.html` を追加すると、ビルド時に `/projects/<id>/` の詳細ページが出力されます（既存HTMLをコピーしてタイトルとdescriptionだけ変えれば足ります）。`visual` は既存の `portfolio`、`cozyctrl` から選び、新しい図柄が必要なら `src/components/ProjectVisual.tsx` に追加します。トップのカードは概要のみ、`details`・外部 `link` は詳細ページに表示します。タグは `{ "name": "React", "kind": "frontend" }` 形式で、`frontend` / `backend` / `infra` により色が付きます（`kind` 省略時はグレー）。構成図は `src/public/diagrams/` に置き、作品JSONの `diagrams` 配列で参照します。`link` を `null` にした場合は `pendingLinkText` が表示されます。
 
-HTML入口は `src/index.html`・`src/projects/`・`src/documents/` に置き、Viteは `src/` を起点としてルートの `site/` に出力します。トップは `src/App.tsx`、作品詳細は `src/components/ProjectPage.tsx`、カードは `src/components/ProjectCard.tsx`、配色・レイアウトは `src/styles.css` です。`src/public/` にはアイコンと404ページを置いています。作品の図は実画面のスクリーンショットではなく、構成を示すイメージです。CloudFrontにSPA用の200フォールバックはないため、詳細は実HTMLとしてビルドします。
+HTML入口は `src/index.html`・`src/projects/`・`src/documents/` に置き、Viteは `src/` を起点としてルートの `site/` に出力します。トップは `src/App.tsx`、作品詳細は `src/components/ProjectPage.tsx`、カードは `src/components/ProjectCard.tsx`、配色・レイアウトは `src/styles.css` です。アイコンは `src/public/`、404ページは `src/404.html` に置いています。作品の図は実画面のスクリーンショットではなく、構成を示すイメージです。CloudFrontにSPA用の200フォールバックはないため、詳細は実HTMLとしてビルドします。
 
 `skillsTitle` / `skillGroups` で対応範囲を管理します。各グループには `description`、各スキルには経験の場を示す `context`、担当作業の `works`、根拠や相談条件の `evidence`、任意の事例リンク `href` を記載します。経過年数によるスキルバーは使用しません。
 
