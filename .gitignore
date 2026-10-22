@@ -19,3 +19,6 @@ site/
 
 # Local identity settings and generated private documents
 .private/
+
+# Local agent instructions
+/AGENTS.md
