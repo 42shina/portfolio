@@ -36,7 +36,7 @@ for (const { id } of projects) {
     const path = `/projects/${id}${suffix}`;
     test(`detail route ${path} resolves to its HTML and renders its project`, () => {
       assert.equal(rewrite(path), `/projects/${id}/index.html`);
-      assert.ok(existsSync(new URL(`../projects/${id}/index.html`, import.meta.url)));
+      assert.ok(existsSync(new URL(`../src/projects/${id}/index.html`, import.meta.url)));
       assert.equal(render(path).page, 'project');
       assert.equal(render(path).id, id);
     });
@@ -53,7 +53,7 @@ for (const type of ['portfolio', 'resume']) {
     const path = `/documents/${type}${suffix}`;
     test(`document route ${path} resolves to its HTML and renders the selected document`, () => {
       assert.equal(rewrite(path), `/documents/${type}/index.html`);
-      assert.ok(existsSync(new URL(`../documents/${type}/index.html`, import.meta.url)));
+      assert.ok(existsSync(new URL(`../src/documents/${type}/index.html`, import.meta.url)));
       if (type === 'portfolio') {
         assert.equal(render(path).redirect, '/');
       } else {

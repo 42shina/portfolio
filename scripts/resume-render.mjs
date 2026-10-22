@@ -28,7 +28,7 @@ export async function renderResume(identity) {
   try {
     server = await createServer({
       configFile: false,
-      root: projectRoot,
+      root: resolve(projectRoot, 'src'),
       cacheDir,
       // SSR does not need the browser dependency optimizer or its background writes.
       optimizeDeps: { noDiscovery: true, include: [] },
@@ -37,7 +37,7 @@ export async function renderResume(identity) {
       server: { middlewareMode: true, hmr: false },
       esbuild: { jsx: 'automatic' },
     });
-    const { default: DocumentPage } = await server.ssrLoadModule('/src/components/DocumentPage.tsx');
+    const { default: DocumentPage } = await server.ssrLoadModule('/components/DocumentPage.tsx');
     const styles = await Promise.all(['src/styles.css', 'src/components/documents.css']
       .map((path) => readFile(resolve(projectRoot, path), 'utf8')));
     return '<!doctype html>' + renderToStaticMarkup(createElement('html', { lang: 'ja' },

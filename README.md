@@ -37,9 +37,9 @@ npm 12では依存パッケージのインストールスクリプトが既定�
 
 `src/` のReactコンポーネントと `vite.config.ts` はstrictモードのTypeScriptで管理し、コンテンツの共通型は `src/content/types.ts` に定義しています。Node.jsから直接実行する補助スクリプト（`.mjs`）とCloudFront Function（`.js`）は、それぞれの実行環境に合わせてJavaScriptのまま管理します。
 
-更新する文章や項目は `src/content/` のセクション別JSONで管理します。作品は `src/content/projects/` に1作品1ファイルで置き、`src/content/index.ts` に読み込みと表示順を追加するとカードが増えます。あわせて `projects/<id>/index.html` を追加すると、ビルド時に `/projects/<id>/` の詳細ページが出力されます（既存HTMLをコピーしてタイトルとdescriptionだけ変えれば足ります）。`visual` は既存の `portfolio`、`cozyctrl` から選び、新しい図柄が必要なら `src/components/ProjectVisual.tsx` に追加します。トップのカードは概要のみ、`details`・外部 `link` は詳細ページに表示します。タグは `{ "name": "React", "kind": "frontend" }` 形式で、`frontend` / `backend` / `infra` により色が付きます（`kind` 省略時はグレー）。構成図は `public/diagrams/` に置き、作品JSONの `diagrams` 配列で参照します。`link` を `null` にした場合は `pendingLinkText` が表示されます。
+更新する文章や項目は `src/content/` のセクション別JSONで管理します。作品は `src/content/projects/` に1作品1ファイルで置き、`src/content/index.ts` に読み込みと表示順を追加するとカードが増えます。あわせて `src/projects/<id>/index.html` を追加すると、ビルド時に `/projects/<id>/` の詳細ページが出力されます（既存HTMLをコピーしてタイトルとdescriptionだけ変えれば足ります）。`visual` は既存の `portfolio`、`cozyctrl` から選び、新しい図柄が必要なら `src/components/ProjectVisual.tsx` に追加します。トップのカードは概要のみ、`details`・外部 `link` は詳細ページに表示します。タグは `{ "name": "React", "kind": "frontend" }` 形式で、`frontend` / `backend` / `infra` により色が付きます（`kind` 省略時はグレー）。構成図は `src/public/diagrams/` に置き、作品JSONの `diagrams` 配列で参照します。`link` を `null` にした場合は `pendingLinkText` が表示されます。
 
-トップは `src/App.tsx`、作品詳細は `src/components/ProjectPage.tsx`、カードは `src/components/ProjectCard.tsx`、配色・レイアウトは `src/styles.css` です。`public/` にはアイコンと404ページを置いています。作品の図は実画面のスクリーンショットではなく、構成を示すイメージです。CloudFrontにSPA用の200フォールバックはないため、詳細は実HTMLとしてビルドします。
+HTML入口は `src/index.html`・`src/projects/`・`src/documents/` に置き、Viteは `src/` を起点としてルートの `site/` に出力します。トップは `src/App.tsx`、作品詳細は `src/components/ProjectPage.tsx`、カードは `src/components/ProjectCard.tsx`、配色・レイアウトは `src/styles.css` です。`src/public/` にはアイコンと404ページを置いています。作品の図は実画面のスクリーンショットではなく、構成を示すイメージです。CloudFrontにSPA用の200フォールバックはないため、詳細は実HTMLとしてビルドします。
 
 `skillsTitle` / `skillGroups` で対応範囲を管理します。各グループには `description`、各スキルには経験の場を示す `context`、担当作業の `works`、根拠や相談条件の `evidence`、任意の事例リンク `href` を記載します。経過年数によるスキルバーは使用しません。
 
@@ -84,7 +84,7 @@ npm run resume:pdf -- --output .private/application.pdf
 
 出力先にPDFがある場合は常に上書きします。`--force` の指定は不要です。Linuxでブラウザのシステムライブラリが不足する場合は `npx playwright install --with-deps chromium` を実行してください。インストール済みのChrome/Chromiumを使う場合は `--browser /path/to/chrome` も指定できます。
 
-公開サイトと同じ職務経歴書コンポーネント・コンテンツ・15mmの余白を使い、生成時だけ氏名とメールアドレスを差し替えます。氏名・メールアドレスを公開JSON・ビルド成果物に書き込まず、ブラウザから外部への通信も行いません。`.private/` はGit管理から除外しています。リポジトリ内の出力先は `.private/` 配下に限定し、配信用の `site/` や `public/` への保存を拒否します。リポジトリ外のローカルフォルダーも `--output` で指定できます。
+公開サイトと同じ職務経歴書コンポーネント・コンテンツ・15mmの余白を使い、生成時だけ氏名とメールアドレスを差し替えます。氏名・メールアドレスを公開JSON・ビルド成果物に書き込まず、ブラウザから外部への通信も行いません。`.private/` はGit管理から除外しています。リポジトリ内の出力先は `.private/` 配下に限定し、配信用の `site/` や `src/public/` への保存を拒否します。リポジトリ外のローカルフォルダーも `--output` で指定できます。
 
 Dockerで開発している場合は、コンテナ内にChromiumを用意して実行できます。生成したファイルをWSLの自分のユーザーで読み書きできるよう、生成時にはユーザーIDを指定します。
 
@@ -108,12 +108,12 @@ Chromiumのインストールはコンテナを作り直した場合にも必要
 Browser ── HTTPS ── CloudFront ── OAC / SigV4 ── private S3
 ```
 
-構成図のソースは `docs/architecture/portfolio-aws.drawio`、詳細ページ表示用は `public/diagrams/portfolio-aws.svg` です。draw.io で編集したあとは次で SVG を再出力できます。
+構成図のソースは `docs/architecture/portfolio-aws.drawio`、詳細ページ表示用は `src/public/diagrams/portfolio-aws.svg` です。draw.io で編集したあとは次で SVG を再出力できます。
 
 ```bash
 docker run --rm \
   -v "$PWD/docs/architecture:/data" \
-  -v "$PWD/public/diagrams:/out" \
+  -v "$PWD/src/public/diagrams:/out" \
   rlespinasse/drawio-desktop-headless:latest \
   --export --format svg --output /out/portfolio-aws.svg /data/portfolio-aws.drawio
 ```

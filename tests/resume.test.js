@@ -29,7 +29,7 @@ test('missing names and invalid email addresses cannot silently use public ident
 
 test('private PDFs cannot be written to public or tracked project directories', async () => {
   assert.equal(await privateOutputPath(resolve(projectRoot, '.private/resume.pdf')), resolve(projectRoot, '.private/resume.pdf'));
-  for (const path of ['site/resume.pdf', 'public/resume.pdf', 'src/resume.pdf', 'resume.pdf', '.private/../site/resume.pdf', '.private/resume.html']) {
+  for (const path of ['site/resume.pdf', 'src/public/resume.pdf', 'src/projects/resume.pdf', 'src/documents/resume.pdf', 'src/resume.pdf', 'resume.pdf', '.private/../site/resume.pdf', '.private/resume.html']) {
     await assert.rejects(privateOutputPath(resolve(projectRoot, path)));
   }
 });
@@ -38,7 +38,7 @@ test('symlinks cannot redirect private PDF output into the public directory', as
   const dir = await mkdtemp(resolve(projectRoot, '.private-path-test-'));
   try {
     await mkdir(resolve(dir, 'local'));
-    await symlink(resolve(projectRoot, 'public'), resolve(dir, 'local/public-link'), process.platform === 'win32' ? 'junction' : 'dir');
+    await symlink(resolve(projectRoot, 'src/public'), resolve(dir, 'local/public-link'), process.platform === 'win32' ? 'junction' : 'dir');
     await assert.rejects(privateOutputPath(resolve(dir, 'local/public-link/resume.pdf')));
   } finally { await rm(dir, { recursive: true, force: true }); }
 });

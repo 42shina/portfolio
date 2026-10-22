@@ -90,7 +90,7 @@ Actionsで両方のジョブが成功したら、`terraform output -raw site_url
 
 ## 通常の更新と切り戻し
 
-`src/`、`public/` 等を変更 → PRのCI成功 → mainへマージ、で自動配信されます。`site/` のコミットは不要です。
+`src/`（画面・HTML・画像・JSON）を変更 → PRのCI成功 → mainへマージ、で自動配信されます。`site/` のコミットは不要です。
 
 切り戻しは、対象変更をrevertしたPRをmainへマージして再配信します。古いActionsの実行を再実行すると古い成果物で上書きされるため、通常の更新・切り戻しには使いません。自動配信の停止はRepository variableの `DEPLOY_ENABLED` を `false` にします（すでに実行中のジョブは必要ならActionsから停止）。
 
