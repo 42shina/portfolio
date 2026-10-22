@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 
 export const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const levels = ['critical', 'high', 'moderate', 'low', 'unknown'];
+const phases = ['image-export', 'scanner-execution', 'scanner-permissions', 'scanner-database', 'scanner-storage', 'report-read', 'report-validation'];
 const targets = ['Project dependencies', 'npm CLI components', 'Development image', 'Node.js official security'];
 const normalize = severity => {
   const value = String(severity).toLowerCase();
@@ -29,7 +30,7 @@ export function publicSummary(rows) {
   const lines = ['## Security monitor', '', code === 2 ? 'Result: monitoring error (checks incomplete).' : code === 1 ? 'Result: findings or security updates require review.' : 'Result: checks completed; no blocking findings.', '', '| Target | Critical | High | Moderate | Low | Unknown | Update/review signals | Check |', '| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |'];
   for (const target of targets) {
     const row = rows.find(x => x.target === target);
-    lines.push(`| ${target} | ${levels.map(level => integer(row?.counts?.[level])).join(' | ')} | ${integer(row?.updates)} | ${row?.status === 'ok' ? 'complete' : 'error'} |`);
+    lines.push(`| ${target} | ${levels.map(level => integer(row?.counts?.[level])).join(' | ')} | ${integer(row?.updates)} | ${row?.status === 'ok' ? 'complete' : phases.includes(row?.phase) ? `error (${row.phase})` : 'error'} |`);
   }
   lines.push('', 'Exit 1: findings/update signals. Exit 2: monitoring error. Details are not published.');
   return lines.join('\n') + '\n';
@@ -139,13 +140,25 @@ export async function runChecks({ directory, execute = command, get = fetchData 
     } catch { /* Preserve the component check's error state. */ }
   }
   if (imageReady) {
+    let phase = 'image-export';
     try {
       const imageDir = resolve(directory, 'image'); await mkdir(imageDir, { mode: 0o700 });
       await successful('docker', ['save', '--output', resolve(imageDir, 'image.tar'), image], opts('image-save'));
+      phase = 'scanner-execution';
       await successful('docker', ['run', '--rm', '--user', `${process.getuid()}:${process.getgid()}`, '--volume', `${imageDir}:/scan`, '--env', 'GRYPE_DB_CACHE_DIR=/scan/db', '--env', 'GRYPE_DB_MAX_ALLOWED_BUILT_AGE=48h', '--env', 'GRYPE_DB_VALIDATE_AGE=true', '--env', 'GRYPE_DB_REQUIRE_UPDATE_CHECK=true', config.scannerImage, 'docker-archive:/scan/image.tar', '--output', 'json', '--file', '/scan/report.json', '--quiet'], opts('image-scan'));
+      phase = 'report-read';
       const report = JSON.parse(await readFile(resolve(imageDir, 'report.json'), 'utf8'));
+      phase = 'report-validation';
       rows[2] = summarize(targets[2], imageFindings(report, config.scannerVersion));
-    } catch { /* Scanner/DB/download failure is not a clean image. */ }
+    } catch {
+      if (phase === 'scanner-execution') {
+        const error = await readFile(resolve(directory, 'image-scan.stderr'), 'utf8').catch(() => '');
+        if (/permission denied/i.test(error)) phase = 'scanner-permissions';
+        else if (/no space left/i.test(error)) phase = 'scanner-storage';
+        else if (/database|download|update|rate.?limit|429/i.test(error)) phase = 'scanner-database';
+      }
+      rows[2].phase = phase;
+    }
   }
   await execute('docker', ['image', 'rm', image], opts('image-cleanup')).catch(() => {});
   return rows;

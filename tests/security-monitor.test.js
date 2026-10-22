@@ -120,3 +120,10 @@ test('an old, unvalidated or partial image database cannot be reported clean', (
     assert.throws(() => imageFindings(changed, '0.120.1', now));
   }
 });
+
+test('only fixed operational error categories may appear in the public summary', () => {
+  const rows = clean(); rows[2].status = 'error'; rows[2].phase = marker;
+  assert.ok(!publicSummary(rows).includes(marker));
+  rows[2].phase = 'scanner-permissions';
+  assert.ok(publicSummary(rows).includes('error (scanner-permissions)'));
+});
