@@ -1,6 +1,6 @@
 {
-  "scannerImage": "ghcr.io/anchore/grype@sha256:e4a44ef45d285b829ce6efe2642980329661bd2d18eab5fc539138d4adaebbbe",
-  "scannerVersion": "0.120.1",
+  "scannerImage": "ghcr.io/aquasecurity/trivy@sha256:2416d1f74045b57274df1a340eee6b510cacd73c66a6ccb8da092b117eb7d222",
+  "scannerVersion": "0.76.0",
   "coreAdvisories": "https://raw.githubusercontent.com/nodejs/security-wg/main/vuln/core/index.json",
   "nodeReleases": "https://nodejs.org/dist/index.json",
   "nodeSchedule": "https://raw.githubusercontent.com/nodejs/Release/main/schedule.json",

@@ -64,17 +64,25 @@ export function projectFindings(report) {
     return { severity: finding.severity };
   });
 }
-export function imageFindings(report, scannerVersion, now = new Date()) {
-  const status = report.descriptor?.db?.status;
-  const db = report.descriptor?.configuration?.db;
-  const providers = report.descriptor?.db?.providers;
-  const built = new Date(status?.built).getTime();
-  if (!Array.isArray(report.matches) || report.source?.type !== 'image' || report.descriptor?.version !== scannerVersion
-      || status?.valid !== true || !Number.isFinite(built) || now - built > 48 * 3600000 || built - now > 3600000
-      || db?.['require-update-check'] !== true || db?.['validate-age'] !== true
-      || !(db?.['max-allowed-built-age'] > 0 && db['max-allowed-built-age'] <= 48 * 3600 * 1e9)
-      || !providers?.debian || !providers?.github || !providers?.nvd) throw new Error('Incomplete or stale image scan');
-  return report.matches.map(match => ({ severity: match.vulnerability.severity }));
+export function archiveImageId(manifest, expectedTag) {
+  if (!Array.isArray(manifest)) throw new Error('Invalid image archive');
+  const matches = manifest.filter(entry => entry.RepoTags?.some(tag => tag === expectedTag || tag === `docker.io/library/${expectedTag}`));
+  const config = matches.length === 1 && matches[0].Config?.match(/(?:^|\/)([a-f0-9]{64})(?:\.json)?$/);
+  if (!config) throw new Error('Image archive does not match the built target');
+  return `sha256:${config[1]}`;
+}
+export function imageFindings(report, { scannerVersion, metadata, imageId }, now = new Date()) {
+  const db = metadata?.VulnerabilityDB;
+  const updated = new Date(db?.UpdatedAt).getTime();
+  const downloaded = new Date(db?.DownloadedAt).getTime();
+  if (report.SchemaVersion !== 2 || report.ArtifactType !== 'container_image'
+      || !imageId?.startsWith('sha256:') || report.Metadata?.ImageID !== imageId || report.Metadata?.OS?.Family !== 'debian'
+      || metadata?.Version !== scannerVersion || report.Trivy?.Version !== scannerVersion || db?.Version !== 2
+      || !Number.isFinite(updated) || now - updated > 48 * 3600000 || updated - now > 3600000
+      || !Number.isFinite(downloaded) || now - downloaded > 2 * 3600000 || downloaded - now > 3600000
+      || !Array.isArray(report.Results) || !report.Results.some(result => result.Type === 'debian')
+      || !report.Results.some(result => result.Type === 'node-pkg')) throw new Error('Incomplete or stale image scan');
+  return report.Results.flatMap(result => (result.Vulnerabilities || []).map(finding => ({ severity: finding.Severity })));
 }
 async function fetchData(url, { json = true, body } = {}) {
   const response = await fetch(url, { method: body ? 'POST' : 'GET', headers: body ? { 'content-type': 'application/json' } : {}, body: body && JSON.stringify(body), signal: AbortSignal.timeout(45000) });
@@ -144,12 +152,20 @@ export async function runChecks({ directory, execute = command, get = fetchData 
     try {
       const imageDir = resolve(directory, 'image'); await mkdir(imageDir, { mode: 0o700 });
       await successful('docker', ['save', '--output', resolve(imageDir, 'image.tar'), image], opts('image-save'));
+      // Docker's containerd store may expose a manifest ID, while scanners use
+      // the config ID. Derive that ID from the exact exported target instead.
+      const manifest = await successful('tar', ['-xOf', resolve(imageDir, 'image.tar'), 'manifest.json'], opts('image-manifest'));
+      const imageId = archiveImageId(JSON.parse(await readFile(manifest.stdout, 'utf8')), image);
       phase = 'scanner-execution';
-      await successful('docker', ['run', '--rm', '--user', `${process.getuid()}:${process.getgid()}`, '--volume', `${imageDir}:/scan`, '--env', 'GRYPE_DB_CACHE_DIR=/scan/db', '--env', 'GRYPE_DB_MAX_ALLOWED_BUILT_AGE=48h', '--env', 'GRYPE_DB_VALIDATE_AGE=true', '--env', 'GRYPE_DB_REQUIRE_UPDATE_CHECK=true', config.scannerImage, 'docker-archive:/scan/image.tar', '--output', 'json', '--file', '/scan/report.json', '--quiet'], opts('image-scan'));
+      const scanner = ['run', '--rm', '--user', `${process.getuid()}:${process.getgid()}`, '--volume', `${imageDir}:/scan`, '--env', 'HOME=/scan/home'];
+      // Fresh per-run cache; no skip-db-update/ignore-unfixed/insecure switches.
+      await successful('docker', [...scanner, config.scannerImage, 'image', '--input', '/scan/image.tar', '--scanners', 'vuln', '--format', 'json', '--output', '/scan/report.json', '--cache-dir', '/scan/cache', '--quiet'], opts('image-scan'));
+      const info = await successful('docker', [...scanner, '--network=none', config.scannerImage, '--cache-dir', '/scan/cache', 'version', '--format', 'json'], opts('scanner-metadata'));
       phase = 'report-read';
       const report = JSON.parse(await readFile(resolve(imageDir, 'report.json'), 'utf8'));
+      const metadata = JSON.parse(await readFile(info.stdout, 'utf8'));
       phase = 'report-validation';
-      rows[2] = summarize(targets[2], imageFindings(report, config.scannerVersion));
+      rows[2] = summarize(targets[2], imageFindings(report, { scannerVersion: config.scannerVersion, metadata, imageId }));
     } catch {
       if (phase === 'scanner-execution') {
         const error = await readFile(resolve(directory, 'image-scan.stderr'), 'utf8').catch(() => '');

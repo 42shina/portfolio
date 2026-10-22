@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import { createRequire } from 'node:module';
 import test from 'node:test';
-import { command, emptyResult, exitStatus, imageFindings, main, projectFindings, publicSummary, summarize, validateToolchain } from '../scripts/security-monitor/monitor.mjs';
+import { archiveImageId, command, emptyResult, exitStatus, imageFindings, main, projectFindings, publicSummary, summarize, validateToolchain } from '../scripts/security-monitor/monitor.mjs';
 const require = createRequire(import.meta.url);
 const { inspectNode } = require('../scripts/security-monitor/inventory.cjs');
 const marker = 'PRIVATE-DEPENDENCY-CVE-DO-NOT-PUBLISH';
@@ -101,24 +101,25 @@ test('failure to write the public summary is not swallowed', async () => {
   await assert.rejects(main({ run: async () => clean(), output: () => {}, summaryPath: '/nonexistent-security-monitor/summary' }));
 });
 
-test('an old, unvalidated or partial image database cannot be reported clean', () => {
+test('an old or partial image scan and a different image cannot be reported clean', () => {
   const report = {
-    matches: [], source: { type: 'image' }, descriptor: { version: '0.120.1',
-      db: { status: { built: '2026-10-22T06:00:00Z', valid: true }, providers: { debian: {}, github: {}, nvd: {} } },
-      configuration: { db: { 'require-update-check': true, 'validate-age': true, 'max-allowed-built-age': 48 * 3600 * 1e9 } },
-    },
+    SchemaVersion: 2, ArtifactType: 'container_image', Metadata: { ImageID: 'sha256:expected', OS: { Family: 'debian' } },
+    Trivy: { Version: '0.76.0' }, Results: [{ Type: 'debian' }, { Type: 'node-pkg' }],
   };
-  assert.deepEqual(imageFindings(report, '0.120.1', now), []);
+  const options = { scannerVersion: '0.76.0', imageId: 'sha256:expected', metadata: {
+    Version: '0.76.0', VulnerabilityDB: { Version: 2, UpdatedAt: '2026-10-22T06:00:00Z', DownloadedAt: '2026-10-22T23:30:00Z' },
+  } };
+  assert.deepEqual(imageFindings(report, options, now), []);
   for (const mutation of [
-    d => { d.descriptor.db.status.built = '2026-10-01T00:00:00Z'; },
-    d => { d.descriptor.db.status.valid = false; },
-    d => { delete d.descriptor.db.providers.github; },
-    d => { d.descriptor.configuration.db['require-update-check'] = false; },
-    d => { d.descriptor.version = 'unverified-version'; },
+    d => { d.metadata.VulnerabilityDB.UpdatedAt = '2026-10-01T00:00:00Z'; },
+    d => { d.metadata.VulnerabilityDB.DownloadedAt = '2026-10-01T00:00:00Z'; },
+    d => { d.metadata.Version = 'unverified-version'; },
+    d => { d.imageId = 'sha256:other-image'; },
   ]) {
-    const changed = structuredClone(report); mutation(changed);
-    assert.throws(() => imageFindings(changed, '0.120.1', now));
+    const changed = structuredClone(options); mutation(changed);
+    assert.throws(() => imageFindings(report, changed, now));
   }
+  assert.throws(() => imageFindings({ ...report, Results: [] }, options, now));
 });
 
 test('only fixed operational error categories may appear in the public summary', () => {
@@ -126,4 +127,13 @@ test('only fixed operational error categories may appear in the public summary',
   assert.ok(!publicSummary(rows).includes(marker));
   rows[2].phase = 'scanner-permissions';
   assert.ok(publicSummary(rows).includes('error (scanner-permissions)'));
+});
+
+test('the scanner image ID comes from the exported config, not the engine manifest ID', () => {
+  const digest = 'a'.repeat(64);
+  for (const config of [`${digest}.json`, `blobs/sha256/${digest}`]) {
+    assert.equal(archiveImageId([{ Config: config, RepoTags: ['portfolio-security-monitor:test'] }], 'portfolio-security-monitor:test'), `sha256:${digest}`);
+  }
+  assert.throws(() => archiveImageId([{ Config: `${digest}.json`, RepoTags: ['other:image'] }], 'portfolio-security-monitor:test'));
+  assert.throws(() => archiveImageId([], 'portfolio-security-monitor:test'));
 });
