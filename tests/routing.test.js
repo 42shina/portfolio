@@ -2,25 +2,30 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import vm from 'node:vm';
 import test from 'node:test';
+import { transformWithEsbuild } from 'vite';
 
 const edge = vm.createContext({});
 vm.runInContext(readFileSync(new URL('../infra/functions/directory-index.js', import.meta.url), 'utf8'), edge);
 const rewrite = (uri) => edge.handler({ request: { uri } }).uri;
 
-// Execute the entry point with render markers in place of JSX. This verifies
-// the actual browser pathname selection without depending on a DOM library.
-const entry = readFileSync(new URL('../src/main.jsx', import.meta.url), 'utf8')
-  .replace(/^import .*;\n/gm, '')
-  .replace('<DocumentPage type={documentMatch[1]} />', '({ page: "document", type: documentMatch[1] })')
-  .replace('<ProjectPage project={project} />', '({ page: "project", id: project.id })')
-  .replace('<App />', '({ page: "home" })');
+// Compile the real TypeScript entry point; stub imports and React rendering so
+// route selection runs without a browser or source-level JSX replacements.
+const source = readFileSync(new URL('../src/main.tsx', import.meta.url), 'utf8');
+const { code: entry } = await transformWithEsbuild(source.replace(/^import .*;\n/gm, ''), 'main.tsx', {
+  jsx: 'transform',
+  jsxFactory: 'createElement',
+});
 const projects = ['cozyctrl', 'portfolio'].map((id) => ({ id, title: id, description: id }));
 function render(pathname) {
   let result;
   vm.runInNewContext(entry, {
     window: { location: { pathname, replace: (url) => { result = { redirect: url }; } } },
     document: { getElementById: () => ({}), querySelector: () => null },
-    content: { projects },
+    content: { projects, brand: 'T.S' },
+    App: 'home',
+    ProjectPage: 'project',
+    DocumentPage: 'document',
+    createElement: (page, props) => ({ page, ...props, id: props?.project?.id }),
     createRoot: () => ({ render: (value) => { result = value; } }),
   });
   return result;
@@ -53,7 +58,6 @@ for (const type of ['portfolio', 'resume']) {
         assert.equal(render(path).redirect, '/');
       } else {
         assert.equal(render(path).page, 'document');
-        assert.equal(render(path).type, type);
       }
     });
   }

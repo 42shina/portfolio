@@ -1,9 +1,10 @@
-import PrintButton from './PrintButton.jsx';
-import ConditionContent from './ConditionContent.jsx';
+import type { Condition } from '../content/types';
+import PrintButton from './PrintButton';
+import ConditionContent from './ConditionContent';
 import content from '../content';
 import './documents.css';
 
-function Entries({ entries }) {
+function Entries({ entries }: { entries: Condition[] }) {
   return <dl className="document-entries">{entries.map((entry) => (
     <div key={entry.label}><dt>{entry.label}</dt><dd><ConditionContent condition={entry} /></dd></div>
   ))}</dl>;
@@ -17,12 +18,12 @@ function Career() {
       {point.responsibilities?.map((entry) => (
         <p key={entry.label}>{entry.label}：{entry.text}</p>
       ))}
-      {item.title !== '職歴' && point.skills?.length > 0 && <p>使用技術{point.skillsProvisional ? '（仮・要確認）' : ''}：{point.skills.map((skill) => skill.name).join(' / ')}</p>}
+      {item.title !== '職歴' && !!point.skills?.length && <p>使用技術{point.skillsProvisional ? '（仮・要確認）' : ''}：{point.skills.map((skill) => skill.name).join(' / ')}</p>}
     </div>) : <p>{item.text}{item.link && <a href={item.link.href}>{item.link.label}</a>}{item.afterLink}</p>}
   </section>);
 }
 
-export default function DocumentPage({ identity, printOnly = false } = {}) {
+export default function DocumentPage({ identity, printOnly = false }: { identity?: { name: string; email: string }; printOnly?: boolean } = {}) {
   const links = identity
     ? [...content.contact.links.filter((link) => !link.href.startsWith('mailto:')),
       { label: 'メールアドレス', href: `mailto:${identity.email}` }]

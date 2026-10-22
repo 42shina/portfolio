@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function PrintButton({ label = 'PDFに保存 / 印刷' }) {
+export default function PrintButton({ label = 'PDFに保存 / 印刷' }: { label?: string }) {
   const [printing, setPrinting] = useState(false);
   const [error, setError] = useState('');
 

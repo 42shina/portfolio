@@ -1,4 +1,5 @@
-export default function TagList({ tags, label = '使用技術' }) {
+import type { Tag } from '../content/types';
+export default function TagList({ tags, label = '使用技術' }: { tags: (string | Tag)[]; label?: string }) {
   return (
     <ul className="tags" aria-label={label}>
       {tags.map((tag) => {

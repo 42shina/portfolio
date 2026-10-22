@@ -1,4 +1,5 @@
-export default function ConditionContent({ condition }) {
+import type { Condition } from '../content/types';
+export default function ConditionContent({ condition }: { condition: Condition }) {
   return <>
     {condition.text}
     {condition.items && <ul className="condition-time-list">

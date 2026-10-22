@@ -1,6 +1,6 @@
 # Portfolio
 
-React/Viteで構築するポートフォリオと、非公開S3＋CloudFrontのTerraform構成です。
+React/TypeScript/Viteで構築するポートフォリオと、非公開S3＋CloudFrontのTerraform構成です。
 
 ## Dockerでローカル表示（ホットリロード）
 
@@ -12,6 +12,15 @@ docker compose up -d
 
 ブラウザで http://localhost:8081 を開きます。`src/` や `src/content/` を編集すると自動で反映されます。停止するには `docker compose down` を実行します。
 
+Docker内で依存関係の同期・検証を行う場合は、次を実行します。
+
+```bash
+docker compose exec -T portfolio npm ci
+docker compose exec -T portfolio npm run typecheck
+docker compose exec -T portfolio npm test
+docker compose exec -T portfolio npm run build
+```
+
 ## ローカル開発とコンテンツの更新
 
 Node.js 22以上を用意し、リポジトリのルートで実行します。
@@ -21,11 +30,13 @@ npm ci
 npm run dev
 ```
 
-`npm run build` で配信用ファイルが `site/` に生成されます。`site/` は生成物なので直接編集しません。
+`npm run typecheck` で型チェック、`npm test` でテストを実行します。`npm run build` は型チェック後に配信用ファイルをビルドし、 `site/` に生成します。`site/` は生成物なので直接編集しません。
 
-更新する文章や項目は `src/content/` のセクション別JSONで管理します。作品は `src/content/projects/` に1作品1ファイルで置き、`src/content/index.js` に読み込みと表示順を追加するとカードが増えます。あわせて `projects/<id>/index.html` を追加すると、ビルド時に `/projects/<id>/` の詳細ページが出力されます（既存HTMLをコピーしてタイトルとdescriptionだけ変えれば足ります）。`visual` は既存の `portfolio`、`cozyctrl` から選び、新しい図柄が必要なら `src/components/ProjectVisual.jsx` に追加します。トップのカードは概要のみ、`details`・外部 `link` は詳細ページに表示します。タグは `{ "name": "React", "kind": "frontend" }` 形式で、`frontend` / `backend` / `infra` により色が付きます（`kind` 省略時はグレー）。構成図は `public/diagrams/` に置き、作品JSONの `diagrams` 配列で参照します。`link` を `null` にした場合は `pendingLinkText` が表示されます。
+`src/` のReactコンポーネントと `vite.config.ts` はstrictモードのTypeScriptで管理し、コンテンツの共通型は `src/content/types.ts` に定義しています。Node.jsから直接実行する補助スクリプト（`.mjs`）とCloudFront Function（`.js`）は、それぞれの実行環境に合わせてJavaScriptのまま管理します。
 
-トップは `src/App.jsx`、作品詳細は `src/components/ProjectPage.jsx`、カードは `src/components/ProjectCard.jsx`、配色・レイアウトは `src/styles.css` です。`public/` にはアイコンと404ページを置いています。作品の図は実画面のスクリーンショットではなく、構成を示すイメージです。CloudFrontにSPA用の200フォールバックはないため、詳細は実HTMLとしてビルドします。
+更新する文章や項目は `src/content/` のセクション別JSONで管理します。作品は `src/content/projects/` に1作品1ファイルで置き、`src/content/index.ts` に読み込みと表示順を追加するとカードが増えます。あわせて `projects/<id>/index.html` を追加すると、ビルド時に `/projects/<id>/` の詳細ページが出力されます（既存HTMLをコピーしてタイトルとdescriptionだけ変えれば足ります）。`visual` は既存の `portfolio`、`cozyctrl` から選び、新しい図柄が必要なら `src/components/ProjectVisual.tsx` に追加します。トップのカードは概要のみ、`details`・外部 `link` は詳細ページに表示します。タグは `{ "name": "React", "kind": "frontend" }` 形式で、`frontend` / `backend` / `infra` により色が付きます（`kind` 省略時はグレー）。構成図は `public/diagrams/` に置き、作品JSONの `diagrams` 配列で参照します。`link` を `null` にした場合は `pendingLinkText` が表示されます。
+
+トップは `src/App.tsx`、作品詳細は `src/components/ProjectPage.tsx`、カードは `src/components/ProjectCard.tsx`、配色・レイアウトは `src/styles.css` です。`public/` にはアイコンと404ページを置いています。作品の図は実画面のスクリーンショットではなく、構成を示すイメージです。CloudFrontにSPA用の200フォールバックはないため、詳細は実HTMLとしてビルドします。
 
 `skillsTitle` / `skillGroups` で対応範囲を管理します。各グループには `description`、各スキルには経験の場を示す `context`、担当作業の `works`、根拠や相談条件の `evidence`、任意の事例リンク `href` を記載します。経過年数によるスキルバーは使用しません。
 
@@ -41,7 +52,7 @@ npm run dev
 
 情報源は既存の `src/content/` のJSONです。職務経歴書の氏名表記は `brand.json`、職務要約は `hero.json` の `intro`、職歴・担当実績・学歴・資格は `career.json`、希望条件・連絡先は `contact.json` を参照します。JSONにない氏名・勤務先名・実績数値は補完しません。
 
-サイトの印刷用スタイルは `src/styles.css`、職務経歴書は `src/components/DocumentPage.jsx` と `src/components/documents.css` で管理します。開発中はJSONの更新も自動反映されます。
+サイトの印刷用スタイルは `src/styles.css`、職務経歴書は `src/components/DocumentPage.tsx` と `src/components/documents.css` で管理します。開発中はJSONの更新も自動反映されます。
 
 ## 非公開の氏名・メールアドレスを入れた職務経歴書をCLIで生成
 

@@ -1,7 +1,8 @@
-import ProjectVisual from './ProjectVisual.jsx';
-import TagList from './TagList.jsx';
+import type { Project } from '../content/types';
+import ProjectVisual from './ProjectVisual';
+import TagList from './TagList';
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project }: { project: Project }) {
   const detailHref = `/projects/${project.id}/`;
   const body = (
     <div className={project.wide ? 'project-body' : undefined}>

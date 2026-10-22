@@ -1,6 +1,7 @@
+import type { Footer as FooterContent } from '../content/types';
 import content from '../content';
 
-function homeHref(href) {
+function homeHref(href: string) {
   if (href.startsWith('#')) return `/${href}`;
   return href;
 }
@@ -28,7 +29,7 @@ export function Header({ homeAnchors = false } = {}) {
   );
 }
 
-export function Footer({ footer, backHref = '#main' }) {
+export function Footer({ footer, backHref = '#main' }: { footer: FooterContent; backHref?: string }) {
   return (
     <footer className="footer wrap">
       <Wordmark />

@@ -1,4 +1,5 @@
-export default function SkillGroups({ title, groups }) {
+import type { About } from '../content/types';
+export default function SkillGroups({ title, groups }: { title: string; groups: About['skillGroups'] }) {
   return (
     <div className="skill-experience">
       <div className="skill-experience-heading">

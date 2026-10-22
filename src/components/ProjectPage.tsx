@@ -1,9 +1,10 @@
+import type { Project } from '../content/types';
 import content from '../content';
-import { Footer, Header } from './Layout.jsx';
-import ProjectVisual from './ProjectVisual.jsx';
-import TagList from './TagList.jsx';
+import { Footer, Header } from './Layout';
+import ProjectVisual from './ProjectVisual';
+import TagList from './TagList';
 
-export default function ProjectPage({ project }) {
+export default function ProjectPage({ project }: { project: Project }) {
   return (
     <>
       <a className="skip-link" href="#main">本文へスキップ</a>
@@ -45,7 +46,7 @@ export default function ProjectPage({ project }) {
               )}
             </div>
           </div>
-          {project.diagrams?.length > 0 && (
+          {!!project.diagrams?.length && (
             <section className="project-diagrams" aria-label="構成図">
               {project.diagrams.map((diagram) => (
                 <figure key={diagram.src} className="project-diagram">

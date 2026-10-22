@@ -1,12 +1,13 @@
+import type { Hero as HeroContent, About as AboutContent, Career as CareerContent, Contact as ContactData, Project, Work as WorkContent } from './content/types';
 import content from './content';
-import ConditionContent from './components/ConditionContent.jsx';
-import PrintButton from './components/PrintButton.jsx';
-import { Footer, Header } from './components/Layout.jsx';
-import ProjectCard from './components/ProjectCard.jsx';
-import SkillGroups from './components/SkillGroups.jsx';
+import ConditionContent from './components/ConditionContent';
+import PrintButton from './components/PrintButton';
+import { Footer, Header } from './components/Layout';
+import ProjectCard from './components/ProjectCard';
+import SkillGroups from './components/SkillGroups';
 
 
-function HeroArt({ hero }) {
+function HeroArt({ hero }: { hero: HeroContent }) {
   return (
     <div className="hero-art" aria-hidden="true">
       <img className="hero-art-image" src={hero.artImage} alt="" />
@@ -26,7 +27,7 @@ function HeroArt({ hero }) {
   );
 }
 
-function Hero({ hero }) {
+function Hero({ hero }: { hero: HeroContent }) {
   return (
     <section className="hero wrap" aria-labelledby="hero-title">
       <div className="hero-copy">
@@ -57,7 +58,7 @@ function Hero({ hero }) {
   );
 }
 
-function Work({ heading, projects }) {
+function Work({ heading, projects }: { heading: WorkContent; projects: Project[] }) {
   return (
     <section className="work wrap section" id="work" aria-labelledby="work-title">
       <div className="section-heading">
@@ -75,7 +76,7 @@ function Work({ heading, projects }) {
   );
 }
 
-function About({ about }) {
+function About({ about }: { about: AboutContent }) {
   return (
     <section className="about section wrap" id="about" aria-labelledby="about-title">
       <div className="about-intro">
@@ -101,7 +102,7 @@ function About({ about }) {
   );
 }
 
-function Career({ career }) {
+function Career({ career }: { career: CareerContent }) {
   return (
     <section className="career section wrap" id="career" aria-labelledby="career-title">
       <div>
@@ -127,7 +128,7 @@ function Career({ career }) {
                           ))}
                         </dl>
                       )}
-                      {item.title !== '職歴' && point.skills?.length > 0 && (
+                      {item.title !== '職歴' && !!point.skills?.length && (
                         <div>
                         {point.skillsProvisional && <p className="career-skills-note">使用技術（仮・要確認）</p>}
                         <ul className="tags career-skills" aria-label="使用スキル">
@@ -161,7 +162,7 @@ function Career({ career }) {
   );
 }
 
-function Contact({ contact }) {
+function Contact({ contact }: { contact: ContactData }) {
   return (
     <section className="contact wrap" id="contact" aria-labelledby="contact-title">
       <p className="eyebrow">{contact.eyebrow}</p>
