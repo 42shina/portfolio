@@ -130,6 +130,7 @@ export async function runChecks({ directory, execute = command, get = fetchData 
       const payload = {};
       for (const p of inventory.packages) { payload[p.name] ??= []; if (!payload[p.name].includes(p.version)) payload[p.name].push(p.version); }
       const advisories = await get('https://registry.npmjs.org/-/npm/v1/security/advisories/bulk', { body: payload });
+      if (!advisories || typeof advisories !== 'object' || Array.isArray(advisories)) throw new Error('Invalid advisory response');
       await writeFile(resolve(directory, 'npm-components.json'), JSON.stringify(advisories), { mode: 0o600 });
       // Evaluate ranges with the semver implementation bundled in the scanned npm.
       const script = `const fs=require('node:fs');const semver=require('/usr/local/lib/node_modules/npm/node_modules/semver');const {packages,advisories}=JSON.parse(fs.readFileSync(0,'utf8'));const findings=[];for(const [name,items] of Object.entries(advisories)){if(!Array.isArray(items))throw Error();for(const a of items){if(!semver.validRange(a.vulnerable_versions))throw Error();if(packages.some(p=>p.name===name&&semver.satisfies(p.version,a.vulnerable_versions)))findings.push({severity:a.severity});}}process.stdout.write(JSON.stringify(findings));`;
@@ -141,7 +142,7 @@ export async function runChecks({ directory, execute = command, get = fetchData 
     try {
       const imageDir = resolve(directory, 'image'); await mkdir(imageDir, { mode: 0o700 });
       await successful('docker', ['save', '--output', resolve(imageDir, 'image.tar'), image], opts('image-save'));
-      const r = await successful('docker', ['run', '--rm', '--user', `${process.getuid()}:${process.getgid()}`, '--volume', `${imageDir}:/scan`, '--env', 'GRYPE_DB_CACHE_DIR=/scan/db', '--env', 'GRYPE_DB_MAX_ALLOWED_BUILT_AGE=48h', '--env', 'GRYPE_DB_VALIDATE_AGE=true', '--env', 'GRYPE_DB_REQUIRE_UPDATE_CHECK=true', config.scannerImage, 'docker-archive:/scan/image.tar', '--output', 'json', '--file', '/scan/report.json', '--quiet'], opts('image-scan'));
+      await successful('docker', ['run', '--rm', '--user', `${process.getuid()}:${process.getgid()}`, '--volume', `${imageDir}:/scan`, '--env', 'GRYPE_DB_CACHE_DIR=/scan/db', '--env', 'GRYPE_DB_MAX_ALLOWED_BUILT_AGE=48h', '--env', 'GRYPE_DB_VALIDATE_AGE=true', '--env', 'GRYPE_DB_REQUIRE_UPDATE_CHECK=true', config.scannerImage, 'docker-archive:/scan/image.tar', '--output', 'json', '--file', '/scan/report.json', '--quiet'], opts('image-scan'));
       const report = JSON.parse(await readFile(resolve(imageDir, 'report.json'), 'utf8'));
       rows[2] = summarize(targets[2], imageFindings(report, config.scannerVersion));
     } catch { /* Scanner/DB/download failure is not a clean image. */ }
