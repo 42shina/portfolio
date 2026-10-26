@@ -14,6 +14,8 @@ on:
       - 'package.json'
       - 'package-lock.json'
       - 'scripts/security-monitor/**'
+      - 'scripts/setup-npm.sh'
+      - 'scripts/npm-security/**'
       - '.github/workflows/security-monitor.yml'
 
 permissions:
@@ -25,7 +27,7 @@ concurrency:
 
 jobs:
   monitor:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:

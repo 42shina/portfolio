@@ -3,3 +3,10 @@
 *
 !Dockerfile
 !package.json
+!scripts/
+scripts/*
+!scripts/setup-npm.sh
+!scripts/npm-security/
+scripts/npm-security/*
+!scripts/npm-security/package.json
+!scripts/npm-security/package-lock.json

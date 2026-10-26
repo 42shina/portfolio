@@ -23,7 +23,7 @@ jobs:
           node-version-file: .node-version
           cache: npm
       - name: Use project npm version
-        run: npm install --global "$(node -p 'require("./package.json").packageManager')"
+        run: sh scripts/setup-npm.sh
       - name: Verify toolchain versions
         run: |
           node --version
