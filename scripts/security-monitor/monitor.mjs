@@ -1,3 +1,4 @@
+import { applyDecisions, validateDecisions } from './decisions.mjs';
 import { spawn } from 'node:child_process';
 import { randomUUID } from 'node:crypto';
 import { mkdtemp, mkdir, readFile, writeFile, appendFile, rm, chmod } from 'node:fs/promises';
@@ -14,9 +15,11 @@ const normalize = severity => {
   return value === 'medium' ? 'moderate' : ['negligible', 'info'].includes(value) ? 'low' : levels.includes(value) ? value : 'unknown';
 };
 export const emptyResult = () => targets.map(target => ({ target, status: 'error', counts: Object.fromEntries(levels.map(x => [x, 0])), updates: 0 }));
-export function summarize(target, findings, updates = []) {
-  const row = { target, status: 'ok', counts: Object.fromEntries(levels.map(x => [x, 0])), updates: updates.length };
-  for (const finding of findings) row.counts[normalize(finding.severity)]++;
+export function summarize(target, findings, updates = [], decisions = []) {
+  const filtered = applyDecisions(target, findings, decisions);
+  const signals = applyDecisions(target, updates, decisions);
+  const row = { target, status: 'ok', counts: Object.fromEntries(levels.map(x => [x, 0])), updates: signals.active.length, reviewed: filtered.reviewed + signals.reviewed };
+  for (const finding of filtered.active) row.counts[normalize(finding.severity)]++;
   return row;
 }
 export function exitStatus(rows) {
@@ -27,10 +30,10 @@ export function publicSummary(rows) {
   // Only fixed labels, enumerated status and integers can cross this boundary.
   const integer = n => Number.isSafeInteger(n) && n >= 0 ? n : 0;
   const code = exitStatus(rows);
-  const lines = ['## Security monitor', '', code === 2 ? 'Result: monitoring error (checks incomplete).' : code === 1 ? 'Result: findings or security updates require review.' : 'Result: checks completed; no blocking findings.', '', '| Target | Critical | High | Moderate | Low | Unknown | Update/review signals | Check |', '| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |'];
+  const lines = ['## Security monitor', '', code === 2 ? 'Result: monitoring error (checks incomplete).' : code === 1 ? 'Result: findings or security updates require review.' : 'Result: checks completed; no blocking findings.', '', '| Target | Critical | High | Moderate | Low | Unknown | Update/review signals | Reviewed exceptions | Check |', '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |'];
   for (const target of targets) {
     const row = rows.find(x => x.target === target);
-    lines.push(`| ${target} | ${levels.map(level => integer(row?.counts?.[level])).join(' | ')} | ${integer(row?.updates)} | ${row?.status === 'ok' ? 'complete' : phases.includes(row?.phase) ? `error (${row.phase})` : 'error'} |`);
+    lines.push(`| ${target} | ${levels.map(level => integer(row?.counts?.[level])).join(' | ')} | ${integer(row?.updates)} | ${integer(row?.reviewed)} | ${row?.status === 'ok' ? 'complete' : phases.includes(row?.phase) ? `error (${row.phase})` : 'error'} |`);
   }
   lines.push('', 'Exit 1: findings/update signals. Exit 2: monitoring error. Details are not published.');
   return lines.join('\n') + '\n';
@@ -55,13 +58,18 @@ export async function command(executable, args, { directory, name, input, cwd = 
     });
   } finally { await out.close(); await err.close(); }
 }
-export function projectFindings(report) {
+export function projectFindings(report, lockfile) {
   if (report.auditReportVersion !== 2 || report.error || !report.vulnerabilities || typeof report.vulnerabilities !== 'object' || Array.isArray(report.vulnerabilities) || !report.metadata?.vulnerabilities) throw new Error('Invalid audit response');
   const values = Object.values(report.vulnerabilities);
   if (!Number.isSafeInteger(report.metadata.vulnerabilities.total) || report.metadata.vulnerabilities.total !== values.length) throw new Error('Incomplete audit response');
-  return values.map(finding => {
+  return values.flatMap(finding => {
     if (!levels.includes(finding.severity)) throw new Error('Unknown audit severity');
-    return { severity: finding.severity };
+    const advisories = finding.via?.filter(item => typeof item === 'object') || [];
+    const versions = [...new Set((finding.nodes || []).map(path => lockfile?.packages?.[path]?.version).filter(Boolean))];
+    if (!advisories.length || !versions.length) return [{ severity: finding.severity }];
+    return advisories.flatMap(advisory => versions.map(version => ({
+      severity: advisory.severity, id: advisory.url, package: finding.name, version,
+    })));
   });
 }
 export function archiveImageId(manifest, expectedTag) {
@@ -82,7 +90,7 @@ export function imageFindings(report, { scannerVersion, metadata, imageId }, now
       || !Number.isFinite(downloaded) || now - downloaded > 2 * 3600000 || downloaded - now > 3600000
       || !Array.isArray(report.Results) || !report.Results.some(result => result.Type === 'debian')
       || !report.Results.some(result => result.Type === 'node-pkg')) throw new Error('Incomplete or stale image scan');
-  return report.Results.flatMap(result => (result.Vulnerabilities || []).map(finding => ({ severity: finding.Severity })));
+  return report.Results.flatMap(result => (result.Vulnerabilities || []).map(finding => ({ severity: finding.Severity, id: finding.VulnerabilityID, package: finding.PkgName, version: finding.InstalledVersion, fixedVersion: finding.FixedVersion })));
 }
 async function fetchData(url, { json = true, body } = {}) {
   const response = await fetch(url, { method: body ? 'POST' : 'GET', headers: body ? { 'content-type': 'application/json' } : {}, body: body && JSON.stringify(body), signal: AbortSignal.timeout(45000) });
@@ -91,6 +99,8 @@ async function fetchData(url, { json = true, body } = {}) {
 }
 export async function runChecks({ directory, execute = command, get = fetchData } = {}) {
   const rows = emptyResult();
+  const decisions = validateDecisions(JSON.parse(await readFile(resolve(projectRoot, 'scripts/security-monitor/decisions.json'), 'utf8')));
+  const summarizeReviewed = (target, findings, updates = []) => summarize(target, findings, updates, decisions);
   const config = JSON.parse(await readFile(resolve(projectRoot, 'scripts/security-monitor/config.json'), 'utf8'));
   const pkg = JSON.parse(await readFile(resolve(projectRoot, 'package.json'), 'utf8'));
   const nodeVersion = (await readFile(resolve(projectRoot, '.node-version'), 'utf8')).trim();
@@ -105,12 +115,12 @@ export async function runChecks({ directory, execute = command, get = fetchData 
   };
   try {
     // Audit the lockfile without installing project dependencies or their scripts.
-    await successful('npm', ['install', '--global', `npm@${npmVersion}`, '--ignore-scripts', '--no-audit', '--no-fund'], opts('npm-toolchain'));
+    await successful('sh', ['scripts/setup-npm.sh'], opts('npm-toolchain'));
     const version = await successful('npm', ['--version'], opts('npm-version'));
     if ((await readFile(version.stdout, 'utf8')).trim() !== npmVersion) throw new Error('Unexpected npm');
     const r = await execute('npm', ['audit', '--package-lock-only', '--ignore-scripts', '--json'], opts('project-audit'));
     if (![0, 1].includes(r.status) || r.signal) throw new Error('Private project scan failed');
-    rows[0] = summarize(targets[0], projectFindings(JSON.parse(await readFile(r.stdout, 'utf8'))));
+    rows[0] = summarizeReviewed(targets[0], projectFindings(JSON.parse(await readFile(r.stdout, 'utf8')), JSON.parse(await readFile(resolve(projectRoot, 'package-lock.json'), 'utf8'))));
   } catch { /* Error status is intentionally generic in the public report. */ }
 
   let inventory;
@@ -131,7 +141,7 @@ export async function runChecks({ directory, execute = command, get = fetchData 
     const r = await successful('docker', ['run', '--rm', '-i', '--network=none', image, 'node', '-e', input], { ...opts('inventory'), input: JSON.stringify(data) });
     inventory = JSON.parse(await readFile(r.stdout, 'utf8'));
     validateToolchain(nodeVersion, npmVersion, dockerfile, inventory);
-    if (inventory.node.ok) rows[3] = summarize(targets[3], inventory.node.findings, inventory.node.updates);
+    if (inventory.node.ok) rows[3] = summarizeReviewed(targets[3], inventory.node.findings.map(finding => ({ ...finding, id: finding.advisory?.cve, package: 'node', version: nodeVersion })), inventory.node.updates.map(update => ({ ...update, id: update.link || update.kind, package: 'node', version: nodeVersion })));
   } catch { inventory = undefined; }
 
   if (inventory) {
@@ -142,9 +152,9 @@ export async function runChecks({ directory, execute = command, get = fetchData 
       if (!advisories || typeof advisories !== 'object' || Array.isArray(advisories)) throw new Error('Invalid advisory response');
       await writeFile(resolve(directory, 'npm-components.json'), JSON.stringify(advisories), { mode: 0o600 });
       // Evaluate ranges with the semver implementation bundled in the scanned npm.
-      const script = `const fs=require('node:fs');const semver=require('/usr/local/lib/node_modules/npm/node_modules/semver');const {packages,advisories}=JSON.parse(fs.readFileSync(0,'utf8'));const findings=[];for(const [name,items] of Object.entries(advisories)){if(!Array.isArray(items))throw Error();for(const a of items){if(!semver.validRange(a.vulnerable_versions))throw Error();if(packages.some(p=>p.name===name&&semver.satisfies(p.version,a.vulnerable_versions)))findings.push({severity:a.severity});}}process.stdout.write(JSON.stringify(findings));`;
+      const script = `const fs=require('node:fs');const semver=require('/usr/local/lib/node_modules/npm/node_modules/semver');const {packages,advisories}=JSON.parse(fs.readFileSync(0,'utf8'));const findings=[];for(const [name,items] of Object.entries(advisories)){if(!Array.isArray(items))throw Error();for(const a of items){if(!semver.validRange(a.vulnerable_versions))throw Error();for(const p of packages.filter(p=>p.name===name&&semver.satisfies(p.version,a.vulnerable_versions)))findings.push({severity:a.severity,id:a.url,package:name,version:p.version});}}process.stdout.write(JSON.stringify(findings));`;
       const r = await successful('docker', ['run', '--rm', '--network=none', '-i', image, 'node', '-e', script], { ...opts('component-ranges'), input: JSON.stringify({ packages: inventory.packages, advisories }) });
-      rows[1] = summarize(targets[1], JSON.parse(await readFile(r.stdout, 'utf8')));
+      rows[1] = summarizeReviewed(targets[1], JSON.parse(await readFile(r.stdout, 'utf8')));
     } catch { /* Preserve the component check's error state. */ }
   }
   if (imageReady) {
@@ -165,7 +175,7 @@ export async function runChecks({ directory, execute = command, get = fetchData 
       const report = JSON.parse(await readFile(resolve(imageDir, 'report.json'), 'utf8'));
       const metadata = JSON.parse(await readFile(info.stdout, 'utf8'));
       phase = 'report-validation';
-      rows[2] = summarize(targets[2], imageFindings(report, { scannerVersion: config.scannerVersion, metadata, imageId }));
+      rows[2] = summarizeReviewed(targets[2], imageFindings(report, { scannerVersion: config.scannerVersion, metadata, imageId }));
     } catch {
       if (phase === 'scanner-execution') {
         const error = await readFile(resolve(directory, 'image-scan.stderr'), 'utf8').catch(() => '');

@@ -1,0 +1,9 @@
+{
+  "name": "portfolio-npm-security-patches",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "ip-address": "10.7.4",
+    "undici": "6.29.1"
+  }
+}

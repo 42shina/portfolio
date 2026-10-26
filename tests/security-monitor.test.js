@@ -137,3 +137,44 @@ test('the scanner image ID comes from the exported config, not the engine manife
   assert.throws(() => archiveImageId([{ Config: `${digest}.json`, RepoTags: ['other:image'] }], 'portfolio-security-monitor:test'));
   assert.throws(() => archiveImageId([], 'portfolio-security-monitor:test'));
 });
+
+const decision = {
+  target: 'Development image', id: 'CVE-TEST', package: 'example', version: '1.0.0',
+  fixedVersion: '', reason: marker, reference: 'https://example.com/review', expires: '2999-01-01',
+};
+const reviewedFinding = { id: 'CVE-TEST', package: 'example', version: '1.0.0', severity: 'critical' };
+test('review decisions only exclude the exact finding until expiry or a fix becomes available', async () => {
+  const { applyDecisions, validateDecisions } = await import('../scripts/security-monitor/decisions.mjs');
+  const entries = validateDecisions([decision]);
+  const filter = (finding, date = now, target = decision.target) => applyDecisions(target, [finding], entries, date);
+  assert.equal(filter(reviewedFinding).reviewed, 1);
+  for (const changed of [{ id: 'CVE-NEW' }, { package: 'other' }, { version: '1.0.1' }, { fixedVersion: '1.0.2' }]) {
+    assert.equal(filter({ ...reviewedFinding, ...changed }).active.length, 1);
+  }
+  assert.equal(filter(reviewedFinding, now, 'npm CLI components').active.length, 1);
+  assert.equal(filter(reviewedFinding, new Date('2999-01-01T00:00:00Z')).active.length, 1);
+  assert.equal(filter({ severity: 'critical' }).active.length, 1);
+  const rows = clean(); rows[2] = summarize(decision.target, [reviewedFinding], [], entries);
+  assert.equal(exitStatus(rows), 0);
+  assert.equal(rows[2].reviewed, 1);
+  const output = publicSummary(rows);
+  assert.ok(output.includes('Reviewed exceptions'));
+  for (const secret of [marker, decision.id, decision.package, decision.reference]) assert.ok(!output.includes(secret));
+  rows[2].status = 'error'; assert.equal(exitStatus(rows), 2);
+});
+test('invalid or ambiguous review decisions are rejected', async () => {
+  const { validateDecisions } = await import('../scripts/security-monitor/decisions.mjs');
+  for (const changed of [{ reason: '' }, { expires: '2027-02-30' }, { reference: 'file:///tmp/review' }, { version: null }, { fixedVersion: null }, { target: 'all' }]) {
+    assert.throws(() => validateDecisions([{ ...decision, ...changed }]));
+  }
+  assert.throws(() => validateDecisions([decision, decision]));
+  assert.throws(() => validateDecisions({}));
+});
+test('reviewed official notices do not hide later notices or Node versions', () => {
+  const target = 'Node.js official security';
+  const entry = { ...decision, target, id: 'https://nodejs.org/en/blog/vulnerability/reviewed', package: 'node', version: '22.23.4' };
+  const update = { id: entry.id, package: entry.package, version: entry.version };
+  assert.equal(summarize(target, [], [update], [entry]).updates, 0);
+  assert.equal(summarize(target, [], [{ ...update, id: `${entry.id}-new` }], [entry]).updates, 1);
+  assert.equal(summarize(target, [], [{ ...update, version: '22.23.5' }], [entry]).updates, 1);
+});
