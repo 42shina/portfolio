@@ -178,3 +178,38 @@ test('reviewed official notices do not hide later notices or Node versions', () 
   assert.equal(summarize(target, [], [{ ...update, id: `${entry.id}-new` }], [entry]).updates, 1);
   assert.equal(summarize(target, [], [{ ...update, version: '22.23.5' }], [entry]).updates, 1);
 });
+
+test('date-only and UTC timestamp decisions expire at their exact boundary', async () => {
+  const { applyDecisions, validateDecisions } = await import('../scripts/security-monitor/decisions.mjs');
+  for (const [expires, boundary] of [
+    ['2026-11-13', '2026-11-13T00:00:00Z'],
+    ['2026-11-12T18:00:00Z', '2026-11-12T18:00:00Z'],
+    ['2028-02-29T12:34:56Z', '2028-02-29T12:34:56Z'],
+  ]) {
+    const entries = validateDecisions([{ ...decision, expires }]);
+    const at = Date.parse(boundary);
+    for (const [offset, reviewed] of [[-1, 1], [0, 0], [1, 0]]) {
+      assert.equal(applyDecisions(decision.target, [reviewedFinding], entries, new Date(at + offset)).reviewed, reviewed);
+    }
+    for (const changed of [{ id: 'CVE-NEW' }, { package: 'other' }, { version: '1.0.1' }, { fixedVersion: '1.0.2' }]) {
+      assert.equal(applyDecisions(decision.target, [{ ...reviewedFinding, ...changed }], entries, new Date(at - 1)).reviewed, 0);
+    }
+    assert.equal(applyDecisions('npm CLI components', [reviewedFinding], entries, new Date(at - 1)).reviewed, 0);
+  }
+});
+
+test('expiry rejects invalid calendar dates and ambiguous or non-UTC timestamps', async () => {
+  const { applyDecisions, validateDecisions } = await import('../scripts/security-monitor/decisions.mjs');
+  for (const expires of [
+    '2026-02-29', '2026-02-29T18:00:00Z', '2026-11-31T18:00:00Z',
+    '2026-11-12T24:00:00Z', '2026-11-12T18:60:00Z', '2026-11-12T18:00:60Z',
+    '2026-11-12T18:00:00', '2026-11-13T03:00:00+09:00', '2026-11-12T18:00:00+00:00',
+    '2026-11-12 18:00:00Z', '2026-11-12T18:00Z', '2026-11-12T18:00:00.000Z',
+    '2026-11-12t18:00:00z', '2026-11-12T18:00:00Z\n', '2026-11-12\n',
+    '11/12/2026', '', null,
+  ]) {
+    const entries = [{ ...decision, expires }];
+    assert.throws(() => validateDecisions(entries));
+    assert.equal(applyDecisions(decision.target, [reviewedFinding], entries, now).reviewed, 0);
+  }
+});

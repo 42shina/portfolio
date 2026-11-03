@@ -5,9 +5,9 @@
     "package": "zlib1g",
     "version": "1:1.2.13.dfsg-1",
     "fixedVersion": "",
-    "reason": "Debian bookwormのzlibは問題のcontrib/minizipをビルドせず、該当バイナリを提供しないため対応不要。",
+    "reason": "2026-11-03再確認済み：Debian bookwormのzlibは問題のcontrib/minizipをビルドせず、該当バイナリを提供しないため対応不要。",
     "reference": "https://security-tracker.debian.org/tracker/CVE-2023-45853",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -15,9 +15,9 @@
     "package": "apt",
     "version": "2.6.1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2011-3374",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -25,9 +25,9 @@
     "package": "bash",
     "version": "5.2.15-2+b13",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://security-tracker.debian.org/tracker/TEMP-0841856-B18BAF",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -35,9 +35,9 @@
     "package": "bsdutils",
     "version": "1:2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-53613",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -45,9 +45,9 @@
     "package": "bsdutils",
     "version": "1:2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-53615",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -55,9 +55,9 @@
     "package": "bsdutils",
     "version": "1:2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-76642",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -65,9 +65,9 @@
     "package": "bsdutils",
     "version": "1:2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78408",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -75,9 +75,9 @@
     "package": "bsdutils",
     "version": "1:2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78409",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -85,9 +85,9 @@
     "package": "bsdutils",
     "version": "1:2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78410",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -95,9 +95,9 @@
     "package": "bsdutils",
     "version": "1:2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-13595",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -105,9 +105,9 @@
     "package": "bsdutils",
     "version": "1:2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-27456",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -115,9 +115,9 @@
     "package": "bsdutils",
     "version": "1:2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-3184",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -125,9 +125,9 @@
     "package": "bsdutils",
     "version": "1:2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2022-0563",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -135,9 +135,9 @@
     "package": "bsdutils",
     "version": "1:2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-14104",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -145,9 +145,9 @@
     "package": "coreutils",
     "version": "9.1-1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2016-2781",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -155,9 +155,9 @@
     "package": "coreutils",
     "version": "9.1-1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2017-18018",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -165,9 +165,9 @@
     "package": "coreutils",
     "version": "9.1-1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-5278",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -175,9 +175,9 @@
     "package": "coreutils",
     "version": "9.1-1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-56391",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -185,9 +185,9 @@
     "package": "coreutils",
     "version": "9.1-1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-56392",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -195,9 +195,9 @@
     "package": "dash",
     "version": "0.5.12-2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-102473",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -205,9 +205,9 @@
     "package": "dash",
     "version": "0.5.12-2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-102474",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -215,9 +215,9 @@
     "package": "diffutils",
     "version": "1:3.8-4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-53910",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -225,9 +225,9 @@
     "package": "gcc-12-base",
     "version": "12.2.0-14+deb12u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-102010",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -235,9 +235,9 @@
     "package": "gcc-12-base",
     "version": "12.2.0-14+deb12u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-95619",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -245,9 +245,9 @@
     "package": "gcc-12-base",
     "version": "12.2.0-14+deb12u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2022-27943",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -255,9 +255,9 @@
     "package": "gpgv",
     "version": "2.2.40-1.1+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-30258",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -265,9 +265,9 @@
     "package": "gpgv",
     "version": "2.2.40-1.1+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-68972",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -275,9 +275,9 @@
     "package": "gpgv",
     "version": "2.2.40-1.1+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2022-3219",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -285,9 +285,9 @@
     "package": "gpgv",
     "version": "2.2.40-1.1+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-105712",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -295,9 +295,9 @@
     "package": "gpgv",
     "version": "2.2.40-1.1+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-57062",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -305,9 +305,9 @@
     "package": "gzip",
     "version": "1.12-1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-41992",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -315,9 +315,9 @@
     "package": "gzip",
     "version": "1.12-1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-41991",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -325,9 +325,9 @@
     "package": "libacl1",
     "version": "2.3.1-3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-54369",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -335,9 +335,9 @@
     "package": "libacl1",
     "version": "2.3.1-3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-54370",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -345,9 +345,9 @@
     "package": "libapt-pkg6.0",
     "version": "2.6.1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2011-3374",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -355,9 +355,9 @@
     "package": "libattr1",
     "version": "1:2.5.1-4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-54371",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -365,9 +365,9 @@
     "package": "libblkid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-53613",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -375,9 +375,9 @@
     "package": "libblkid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-53615",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -385,9 +385,9 @@
     "package": "libblkid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-76642",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -395,9 +395,9 @@
     "package": "libblkid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78408",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -405,9 +405,9 @@
     "package": "libblkid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78409",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -415,9 +415,9 @@
     "package": "libblkid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78410",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -425,9 +425,9 @@
     "package": "libblkid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-13595",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -435,9 +435,9 @@
     "package": "libblkid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-27456",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -445,9 +445,9 @@
     "package": "libblkid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-3184",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -455,9 +455,9 @@
     "package": "libblkid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2022-0563",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -465,9 +465,9 @@
     "package": "libblkid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-14104",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -475,9 +475,9 @@
     "package": "libbz2-1.0",
     "version": "1.0.8-5+b1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-42250",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -485,9 +485,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-18374",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -495,9 +495,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-19499",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -505,9 +505,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-19542",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -515,9 +515,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-5435",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -525,9 +525,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-5450",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -535,9 +535,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-5928",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -545,9 +545,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-6238",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -555,9 +555,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-6368",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -565,9 +565,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-6791",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -575,9 +575,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-77117",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -585,9 +585,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-80489",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -595,9 +595,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-8674",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -605,9 +605,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-86805",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -615,9 +615,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-89092",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -625,9 +625,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-95818",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -635,9 +635,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2010-4756",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -645,9 +645,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2018-20796",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -655,9 +655,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2019-1010022",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -665,9 +665,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2019-1010023",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -675,9 +675,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2019-1010024",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -685,9 +685,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2019-1010025",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -695,9 +695,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2019-9192",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -705,9 +705,9 @@
     "package": "libc-bin",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-97399",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -715,9 +715,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-18374",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -725,9 +725,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-19499",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -735,9 +735,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-19542",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -745,9 +745,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-5435",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -755,9 +755,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-5450",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -765,9 +765,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-5928",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -775,9 +775,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-6238",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -785,9 +785,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-6368",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -795,9 +795,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-6791",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -805,9 +805,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-77117",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -815,9 +815,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-80489",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -825,9 +825,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-8674",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -835,9 +835,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-86805",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -845,9 +845,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-89092",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -855,9 +855,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-95818",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -865,9 +865,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2010-4756",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -875,9 +875,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2018-20796",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -885,9 +885,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2019-1010022",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -895,9 +895,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2019-1010023",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -905,9 +905,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2019-1010024",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -915,9 +915,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2019-1010025",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -925,9 +925,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2019-9192",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -935,9 +935,9 @@
     "package": "libc6",
     "version": "2.36-9+deb12u14",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-97399",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -945,9 +945,9 @@
     "package": "libgcc-s1",
     "version": "12.2.0-14+deb12u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-102010",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -955,9 +955,9 @@
     "package": "libgcc-s1",
     "version": "12.2.0-14+deb12u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-95619",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -965,9 +965,9 @@
     "package": "libgcc-s1",
     "version": "12.2.0-14+deb12u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2022-27943",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -975,9 +975,9 @@
     "package": "libgcrypt20",
     "version": "1.10.1-3+deb12u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2018-6829",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -985,9 +985,9 @@
     "package": "libgcrypt20",
     "version": "1.10.1-3+deb12u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2024-2236",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -995,9 +995,9 @@
     "package": "libgnutls30",
     "version": "3.7.9-2+deb12u7",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2011-3389",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1005,9 +1005,9 @@
     "package": "libgnutls30",
     "version": "3.7.9-2+deb12u7",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-67693",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1015,9 +1015,9 @@
     "package": "libgnutls30",
     "version": "3.7.9-2+deb12u7",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-88647",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1025,9 +1025,9 @@
     "package": "libgnutls30",
     "version": "3.7.9-2+deb12u7",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-88648",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1035,9 +1035,9 @@
     "package": "libgnutls30",
     "version": "3.7.9-2+deb12u7",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-95184",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1045,9 +1045,9 @@
     "package": "libgnutls30",
     "version": "3.7.9-2+deb12u7",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-95209",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1055,9 +1055,9 @@
     "package": "libgnutls30",
     "version": "3.7.9-2+deb12u7",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-95210",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1065,9 +1065,9 @@
     "package": "libmount1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-53613",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1075,9 +1075,9 @@
     "package": "libmount1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-53615",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1085,9 +1085,9 @@
     "package": "libmount1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-76642",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1095,9 +1095,9 @@
     "package": "libmount1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78408",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1105,9 +1105,9 @@
     "package": "libmount1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78409",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1115,9 +1115,9 @@
     "package": "libmount1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78410",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1125,9 +1125,9 @@
     "package": "libmount1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-13595",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1135,9 +1135,9 @@
     "package": "libmount1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-27456",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1145,9 +1145,9 @@
     "package": "libmount1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-3184",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1155,9 +1155,9 @@
     "package": "libmount1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2022-0563",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1165,9 +1165,9 @@
     "package": "libmount1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-14104",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1175,9 +1175,9 @@
     "package": "libp11-kit0",
     "version": "0.24.1-2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-13757",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1185,9 +1185,9 @@
     "package": "libp11-kit0",
     "version": "0.24.1-2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-18938",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1195,9 +1195,9 @@
     "package": "libpam-modules",
     "version": "1.5.2-6+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2024-10041",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1205,9 +1205,9 @@
     "package": "libpam-modules",
     "version": "1.5.2-6+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-54411",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1215,9 +1215,9 @@
     "package": "libpam-modules-bin",
     "version": "1.5.2-6+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2024-10041",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1225,9 +1225,9 @@
     "package": "libpam-modules-bin",
     "version": "1.5.2-6+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-54411",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1235,9 +1235,9 @@
     "package": "libpam-runtime",
     "version": "1.5.2-6+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2024-10041",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1245,9 +1245,9 @@
     "package": "libpam-runtime",
     "version": "1.5.2-6+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-54411",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1255,9 +1255,9 @@
     "package": "libpam0g",
     "version": "1.5.2-6+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2024-10041",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1265,9 +1265,9 @@
     "package": "libpam0g",
     "version": "1.5.2-6+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-54411",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1275,9 +1275,9 @@
     "package": "libsmartcols1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-53613",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1285,9 +1285,9 @@
     "package": "libsmartcols1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-53615",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1295,9 +1295,9 @@
     "package": "libsmartcols1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-76642",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1305,9 +1305,9 @@
     "package": "libsmartcols1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78408",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1315,9 +1315,9 @@
     "package": "libsmartcols1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78409",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1325,9 +1325,9 @@
     "package": "libsmartcols1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78410",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1335,9 +1335,9 @@
     "package": "libsmartcols1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-13595",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1345,9 +1345,9 @@
     "package": "libsmartcols1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-27456",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1355,9 +1355,9 @@
     "package": "libsmartcols1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-3184",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1365,9 +1365,9 @@
     "package": "libsmartcols1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2022-0563",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1375,9 +1375,9 @@
     "package": "libsmartcols1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-14104",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1385,9 +1385,9 @@
     "package": "libstdc++6",
     "version": "12.2.0-14+deb12u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-102010",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1395,9 +1395,9 @@
     "package": "libstdc++6",
     "version": "12.2.0-14+deb12u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-95619",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1405,9 +1405,9 @@
     "package": "libstdc++6",
     "version": "12.2.0-14+deb12u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2022-27943",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1415,9 +1415,9 @@
     "package": "libsystemd0",
     "version": "252.39-1~deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-16742",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1425,9 +1425,9 @@
     "package": "libsystemd0",
     "version": "252.39-1~deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-15059",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1435,9 +1435,9 @@
     "package": "libsystemd0",
     "version": "252.39-1~deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2013-4392",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1445,9 +1445,9 @@
     "package": "libsystemd0",
     "version": "252.39-1~deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2023-31437",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1455,9 +1455,9 @@
     "package": "libsystemd0",
     "version": "252.39-1~deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2023-31438",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1465,9 +1465,9 @@
     "package": "libsystemd0",
     "version": "252.39-1~deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2023-31439",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1475,9 +1475,9 @@
     "package": "libsystemd0",
     "version": "252.39-1~deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-40228",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1485,9 +1485,9 @@
     "package": "libtasn1-6",
     "version": "4.19.0-2+deb12u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-13151",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1495,9 +1495,9 @@
     "package": "libtinfo6",
     "version": "6.4-4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-69720",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1505,9 +1505,9 @@
     "package": "libtinfo6",
     "version": "6.4-4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2023-50495",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1515,9 +1515,9 @@
     "package": "libtinfo6",
     "version": "6.4-4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-6141",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1525,9 +1525,9 @@
     "package": "libudev1",
     "version": "252.39-1~deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-16742",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1535,9 +1535,9 @@
     "package": "libudev1",
     "version": "252.39-1~deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-15059",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1545,9 +1545,9 @@
     "package": "libudev1",
     "version": "252.39-1~deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2013-4392",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1555,9 +1555,9 @@
     "package": "libudev1",
     "version": "252.39-1~deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2023-31437",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1565,9 +1565,9 @@
     "package": "libudev1",
     "version": "252.39-1~deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2023-31438",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1575,9 +1575,9 @@
     "package": "libudev1",
     "version": "252.39-1~deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2023-31439",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1585,9 +1585,9 @@
     "package": "libudev1",
     "version": "252.39-1~deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-40228",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1595,9 +1595,9 @@
     "package": "libuuid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-53613",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1605,9 +1605,9 @@
     "package": "libuuid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-53615",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1615,9 +1615,9 @@
     "package": "libuuid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-76642",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1625,9 +1625,9 @@
     "package": "libuuid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78408",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1635,9 +1635,9 @@
     "package": "libuuid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78409",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1645,9 +1645,9 @@
     "package": "libuuid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78410",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1655,9 +1655,9 @@
     "package": "libuuid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-13595",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1665,9 +1665,9 @@
     "package": "libuuid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-27456",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1675,9 +1675,9 @@
     "package": "libuuid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-3184",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1685,9 +1685,9 @@
     "package": "libuuid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2022-0563",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1695,9 +1695,9 @@
     "package": "libuuid1",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-14104",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1705,9 +1705,9 @@
     "package": "login",
     "version": "1:4.13+dfsg1-1+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2007-5686",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1715,9 +1715,9 @@
     "package": "login",
     "version": "1:4.13+dfsg1-1+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2024-56433",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1725,9 +1725,9 @@
     "package": "login",
     "version": "1:4.13+dfsg1-1+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://security-tracker.debian.org/tracker/TEMP-0628843-DBAD28",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1735,9 +1735,9 @@
     "package": "mount",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-53613",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1745,9 +1745,9 @@
     "package": "mount",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-53615",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1755,9 +1755,9 @@
     "package": "mount",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-76642",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1765,9 +1765,9 @@
     "package": "mount",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78408",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1775,9 +1775,9 @@
     "package": "mount",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78409",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1785,9 +1785,9 @@
     "package": "mount",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78410",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1795,9 +1795,9 @@
     "package": "mount",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-13595",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1805,9 +1805,9 @@
     "package": "mount",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-27456",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1815,9 +1815,9 @@
     "package": "mount",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-3184",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1825,9 +1825,9 @@
     "package": "mount",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2022-0563",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1835,9 +1835,9 @@
     "package": "mount",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-14104",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1845,9 +1845,9 @@
     "package": "ncurses-base",
     "version": "6.4-4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-69720",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1855,9 +1855,9 @@
     "package": "ncurses-base",
     "version": "6.4-4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2023-50495",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1865,9 +1865,9 @@
     "package": "ncurses-base",
     "version": "6.4-4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-6141",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1875,9 +1875,9 @@
     "package": "ncurses-bin",
     "version": "6.4-4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-69720",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1885,9 +1885,9 @@
     "package": "ncurses-bin",
     "version": "6.4-4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2023-50495",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1895,9 +1895,9 @@
     "package": "ncurses-bin",
     "version": "6.4-4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-6141",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1905,9 +1905,9 @@
     "package": "passwd",
     "version": "1:4.13+dfsg1-1+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2007-5686",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1915,9 +1915,9 @@
     "package": "passwd",
     "version": "1:4.13+dfsg1-1+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2024-56433",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1925,9 +1925,9 @@
     "package": "passwd",
     "version": "1:4.13+dfsg1-1+deb12u2",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://security-tracker.debian.org/tracker/TEMP-0628843-DBAD28",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1935,9 +1935,9 @@
     "package": "perl-base",
     "version": "5.36.0-7+deb12u4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-9538",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1945,9 +1945,9 @@
     "package": "perl-base",
     "version": "5.36.0-7+deb12u4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-15534",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1955,9 +1955,9 @@
     "package": "perl-base",
     "version": "5.36.0-7+deb12u4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2011-4116",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1965,9 +1965,9 @@
     "package": "perl-base",
     "version": "5.36.0-7+deb12u4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2023-31486",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1975,9 +1975,9 @@
     "package": "perl-base",
     "version": "5.36.0-7+deb12u4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-82560",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1985,9 +1985,9 @@
     "package": "sysvinit-utils",
     "version": "3.06-4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://security-tracker.debian.org/tracker/TEMP-0517018-A83CE6",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1995,9 +1995,9 @@
     "package": "tar",
     "version": "1.34+dfsg-1.2+deb12u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-18477",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2005,9 +2005,9 @@
     "package": "tar",
     "version": "1.34+dfsg-1.2+deb12u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-18508",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2015,9 +2015,9 @@
     "package": "tar",
     "version": "1.34+dfsg-1.2+deb12u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-5704",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2025,9 +2025,9 @@
     "package": "tar",
     "version": "1.34+dfsg-1.2+deb12u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2005-2541",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2035,9 +2035,9 @@
     "package": "tar",
     "version": "1.34+dfsg-1.2+deb12u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://security-tracker.debian.org/tracker/TEMP-0290435-0B57B5",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2045,9 +2045,9 @@
     "package": "util-linux",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-53613",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2055,9 +2055,9 @@
     "package": "util-linux",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-53615",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2065,9 +2065,9 @@
     "package": "util-linux",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-76642",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2075,9 +2075,9 @@
     "package": "util-linux",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78408",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2085,9 +2085,9 @@
     "package": "util-linux",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78409",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2095,9 +2095,9 @@
     "package": "util-linux",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78410",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2105,9 +2105,9 @@
     "package": "util-linux",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-13595",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2115,9 +2115,9 @@
     "package": "util-linux",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-27456",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2125,9 +2125,9 @@
     "package": "util-linux",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-3184",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2135,9 +2135,9 @@
     "package": "util-linux",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2022-0563",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2145,9 +2145,9 @@
     "package": "util-linux",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-14104",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2155,9 +2155,9 @@
     "package": "util-linux-extra",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-53613",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2165,9 +2165,9 @@
     "package": "util-linux-extra",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-53615",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2175,9 +2175,9 @@
     "package": "util-linux-extra",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-76642",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2185,9 +2185,9 @@
     "package": "util-linux-extra",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78408",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2195,9 +2195,9 @@
     "package": "util-linux-extra",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "2026-11-03再確認済み：Debian bookwormは対象外との判定になり、最新DBの再検査では検出されない。既存エントリを維持し、2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78409",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2205,9 +2205,9 @@
     "package": "util-linux-extra",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-78410",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2215,9 +2215,9 @@
     "package": "util-linux-extra",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-13595",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2225,9 +2225,9 @@
     "package": "util-linux-extra",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-27456",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2235,9 +2235,9 @@
     "package": "util-linux-extra",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: will_not_fix）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-3184",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2245,9 +2245,9 @@
     "package": "util-linux-extra",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2022-0563",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2255,9 +2255,9 @@
     "package": "util-linux-extra",
     "version": "2.38.1-5+deb12u3",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2025-14104",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2265,9 +2265,9 @@
     "package": "zlib1g",
     "version": "1:1.2.13.dfsg-1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-27171",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -2275,9 +2275,9 @@
     "package": "zlib1g",
     "version": "1:1.2.13.dfsg-1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-10-26の最新DBによる検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として1週間後に再確認する。",
+    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
     "reference": "https://avd.aquasec.com/nvd/cve-2026-85091",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   },
   {
     "target": "Node.js official security",
@@ -2285,8 +2285,8 @@
     "package": "node",
     "version": "22.23.4",
     "fixedVersion": "",
-    "reason": "確認済み：この公式告知のNode.js 22向け修正版22.23.4は適用済み。公式リリース一覧の日付と告知日が異なるため残る確認シグナルを1週間だけ受容する。",
+    "reason": "2026-11-03再確認済み：この公式告知のNode.js 22向け修正版22.23.4は適用済み。公式リリース一覧の日付と告知日が異なるため残る確認シグナルを2026-11-13 03:00 JSTまで受容する。",
     "reference": "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases",
-    "expires": "2026-11-02"
+    "expires": "2026-11-12T18:00:00Z"
   }
 ]

@@ -1,6 +1,6 @@
 # 日次セキュリティ監視
 
-GitHub Actionsの `Daily security monitor` が、既定ブランチmainを毎日03:23 JST（18:23 UTC）に検査します。関連する依存・Docker・監視設定のmainへの変更時と、Actions画面からの手動実行にも対応します。定期実行には遅延・取りこぼしがあり、公開リポジトリは60日間活動がないとGitHub側で定期実行が停止することがあります。
+GitHub Actionsの `Daily security monitor` が、既定ブランチmainを毎日05:00 JST（前日20:00 UTC）に検査します。関連する依存・Docker・監視設定のmainへの変更時と、Actions画面からの手動実行にも対応します。定期実行には遅延・取りこぼしがあり、公開リポジトリは60日間活動がないとGitHub側で定期実行が停止することがあります。
 
 ## 対象
 
@@ -28,6 +28,8 @@ Node/Docker/npmは開発・ビルド環境です。本番のS3/CloudFrontでNode
 監視workflowに必要なのはリポジトリ読み取り権限だけです。AWS認証、本番デプロイ権限、依存の自動修正・公開はありません。checkout・runner起動など、ラッパー実行前の障害や強制終了ではサマリーを作れない場合があります。詳細が公開されることを避けるため、デバッグ用のコマンドや検査結果のアップロードをworkflowに追加しないでください。
 
 ## 保守
+
+例外の `expires` は `YYYY-MM-DD`（UTC 00:00）または `YYYY-MM-DDTHH:mm:ssZ`（UTCの指定時刻）で指定します。期限ちょうど以降は失効します。時差付き・ローカル時刻・不正な日付は受け付けません。
 
 監視ロジックと固定スキャナー情報は `scripts/security-monitor/`、workflowは `.github/workflows/security-monitor.yml`、公開出力の回帰テストは `tests/security-monitor.test.js` にあります。スキャナー更新時は公式リリースとdigestを確認し、実検査・出力の非公開性を再検証してください。
 
