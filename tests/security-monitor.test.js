@@ -37,13 +37,32 @@ test('unexpected audit responses are monitoring errors, not empty findings', () 
 });
 
 test('the scanned image must match .node-version, Dockerfile and npm pin', () => {
-  const from = 'FROM node:22.23.4-bookworm-slim\n';
-  const inventory = { nodeVersion: '22.23.4', npmVersion: '12.2.1', packages: [{ name: 'npm', version: '12.2.1' }] };
-  validateToolchain('22.23.4', '12.2.1', from, inventory);
-  for (const change of [{ nodeVersion: '22.23.3' }, { npmVersion: '10.9.9' }, { packages: [] }]) {
-    assert.throws(() => validateToolchain('22.23.4', '12.2.1', from, { ...inventory, ...change }));
+  const from = 'FROM node:26.13.0-bookworm-slim\n';
+  const inventory = { nodeVersion: '26.13.0', npmVersion: '12.2.1', packages: [{ name: 'npm', version: '12.2.1' }] };
+  validateToolchain('26.13.0', '12.2.1', from, inventory);
+  for (const change of [{ nodeVersion: '22.23.4' }, { npmVersion: '11.20.0' }, { packages: [] }]) {
+    assert.throws(() => validateToolchain('26.13.0', '12.2.1', from, { ...inventory, ...change }));
   }
-  assert.throws(() => validateToolchain('22.23.4', '12.2.1', 'FROM node:24-slim', inventory));
+  assert.throws(() => validateToolchain('26.13.0', '12.2.1', 'FROM node:26-slim', inventory));
+});
+
+test('Node 26 retains upcoming security notices and does not inherit Node 22 exceptions', () => {
+  const data = nodeData();
+  data.core['1'] = { vulnerable: '26.x', patched: '>=26.12.1', severity: 'high', affectedEnvironments: ['all'] };
+  data.releases = [
+    { version: 'v26.13.0', date: '2026-10-28', security: false },
+    { version: 'v26.12.1', date: '2026-10-21', security: true },
+  ];
+  data.schedule = { v26: { end: '2029-04-30' } };
+  data.feed = data.feed.replace('October security releases', 'November security releases').replace('october-security-releases', 'november-security-releases').replace('Wed, 21 Oct 2026', 'Fri, 06 Nov 2026');
+  const result = inspectNode(data, '26.13.0', new Date('2026-11-07T00:00:00Z'));
+  assert.equal(result.findings.length, 0);
+  assert.equal(result.updates.length, 1);
+  assert.equal(result.updates[0].kind, 'official-notice');
+  const target = 'Node.js official security';
+  const update = { ...result.updates[0], id: result.updates[0].link, package: 'node', version: '26.13.0' };
+  const old = { ...decision, target, id: update.id, package: 'node', version: '22.23.4' };
+  assert.equal(summarize(target, [], [update], [old]).updates, 1);
 });
 
 function nodeData() {
@@ -184,6 +203,7 @@ test('date-only and UTC timestamp decisions expire at their exact boundary', asy
   for (const [expires, boundary] of [
     ['2026-11-13', '2026-11-13T00:00:00Z'],
     ['2026-11-12T18:00:00Z', '2026-11-12T18:00:00Z'],
+    ['2026-11-12T15:00:00Z', '2026-11-12T15:00:00Z'],
     ['2028-02-29T12:34:56Z', '2028-02-29T12:34:56Z'],
   ]) {
     const entries = validateDecisions([{ ...decision, expires }]);
@@ -211,5 +231,21 @@ test('expiry rejects invalid calendar dates and ambiguous or non-UTC timestamps'
     const entries = [{ ...decision, expires }];
     assert.throws(() => validateDecisions(entries));
     assert.equal(applyDecisions(decision.target, [reviewedFinding], entries, now).reviewed, 0);
+  }
+});
+
+test('a reviewed Node notice cannot hide a different notice or a new CVE, and public output stays private', () => {
+  const target = 'Node.js official security';
+  const october = { ...decision, target, id: 'https://nodejs.org/en/blog/vulnerability/reviewed-october', package: 'node', version: '26.13.0' };
+  const november = { id: 'https://nodejs.org/en/blog/vulnerability/unreviewed-november', package: 'node', version: '26.13.0', title: marker };
+  const finding = { id: 'CVE-TEST-NEW-NODE', package: 'node', version: '26.13.0', severity: 'high' };
+  const rows = clean();
+  rows[3] = summarize(target, [finding], [november], [october]);
+  assert.equal(rows[3].counts.high, 1);
+  assert.equal(rows[3].updates, 1);
+  assert.equal(exitStatus(rows), 1);
+  const publicText = publicSummary(rows);
+  for (const privateValue of [october.id, november.id, november.title, finding.id, finding.version]) {
+    assert.ok(!publicText.includes(privateValue));
   }
 });
