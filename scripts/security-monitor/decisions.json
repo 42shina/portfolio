@@ -2288,5 +2288,15 @@
     "reason": "2026-11-03再確認済み：この公式告知のNode.js 22向け修正版22.23.4は適用済み。公式リリース一覧の日付と告知日が異なるため残る確認シグナルを2026-11-13 03:00 JSTまで受容する。",
     "reference": "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases",
     "expires": "2026-11-12T18:00:00Z"
+  },
+  {
+    "target": "Development image",
+    "id": "CVE-2026-76844",
+    "package": "zlib1g",
+    "version": "1:1.2.13.dfsg-1",
+    "fixedVersion": "",
+    "reason": "2026-11-07影響確認：現行の静的配信・開発/ビルド用途では到達経路なしと判断。NodeはOS libzに非依存。実イメージのgzwrite利用元apt/dpkgに、1.2.13で発火に必要なgzclearerrの参照はなく、書込失敗後の再書込み拒否を確認。依存native addonにもlibz/gz参照なし。任意ツール・外部ブラウザー・依存変更は対象外として再評価し、2026-11-13 03:00 JSTまでに再確認する。",
+    "reference": "https://security-tracker.debian.org/tracker/CVE-2026-76844",
+    "expires": "2026-11-12T18:00:00Z"
   }
 ]
