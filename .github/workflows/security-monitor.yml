@@ -5,6 +5,7 @@ on:
     # 05:00 JST (20:00 UTC on the previous day).
     - cron: '0 20 * * *'
   workflow_dispatch:
+  pull_request:
   push:
     branches: [main]
     paths:
@@ -27,7 +28,7 @@ concurrency:
 
 jobs:
   monitor:
-    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
