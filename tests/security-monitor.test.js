@@ -37,13 +37,25 @@ test('unexpected audit responses are monitoring errors, not empty findings', () 
 });
 
 test('the scanned image must match .node-version, Dockerfile and npm pin', () => {
-  const from = 'FROM node:26.13.0-bookworm-slim\n';
-  const inventory = { nodeVersion: '26.13.0', npmVersion: '12.2.1', packages: [{ name: 'npm', version: '12.2.1' }] };
-  validateToolchain('26.13.0', '12.2.1', from, inventory);
+  const from = 'FROM node:26.13.1-trixie-slim\n';
+  const inventory = { nodeVersion: '26.13.1', npmVersion: '12.2.1', packages: [{ name: 'npm', version: '12.2.1' }] };
+  validateToolchain('26.13.1', '12.2.1', from, inventory);
   for (const change of [{ nodeVersion: '22.23.4' }, { npmVersion: '11.20.0' }, { packages: [] }]) {
-    assert.throws(() => validateToolchain('26.13.0', '12.2.1', from, { ...inventory, ...change }));
+    assert.throws(() => validateToolchain('26.13.1', '12.2.1', from, { ...inventory, ...change }));
   }
-  assert.throws(() => validateToolchain('26.13.0', '12.2.1', 'FROM node:26-slim', inventory));
+  for (const image of ['26-slim', '26.13.1-bookworm-slim', '26.13.1-alpine', '26.13.0-trixie-slim']) {
+    assert.throws(() => validateToolchain('26.13.1', '12.2.1', `FROM node:${image}\n`, inventory));
+  }
+});
+
+test('repository Dockerfile uses the validated trixie toolchain', async () => {
+  const nodeVersion = (await readFile(new URL('../.node-version', import.meta.url), 'utf8')).trim();
+  const pkg = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'));
+  const dockerfile = await readFile(new URL('../Dockerfile', import.meta.url), 'utf8');
+  const npmVersion = pkg.packageManager.replace(/^npm@/, '');
+  validateToolchain(nodeVersion, npmVersion, dockerfile, {
+    nodeVersion, npmVersion, packages: [{ name: 'npm', version: npmVersion }],
+  });
 });
 
 test('Node 26 retains upcoming security notices and does not inherit Node 22 exceptions', () => {
