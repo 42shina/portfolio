@@ -39,7 +39,7 @@ export function publicSummary(rows) {
   return lines.join('\n') + '\n';
 }
 export function validateToolchain(nodeVersion, npmVersion, dockerfile, inventory) {
-  const from = dockerfile.match(/^FROM\s+node:([0-9]+\.[0-9]+\.[0-9]+)-bookworm-slim\s*$/m);
+  const from = dockerfile.match(/^FROM\s+node:([0-9]+\.[0-9]+\.[0-9]+)-trixie-slim\s*$/m);
   if (!from || from[1] !== nodeVersion || inventory.nodeVersion !== nodeVersion || inventory.npmVersion !== npmVersion || !inventory.packages?.length) throw new Error('Toolchain mismatch');
 }
 export async function command(executable, args, { directory, name, input, cwd = projectRoot, timeout = 600000 } = {}) {

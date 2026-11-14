@@ -473,11 +473,11 @@
     "target": "Development image",
     "id": "CVE-2026-42250",
     "package": "libbz2-1.0",
-    "version": "1.0.8-5+b1",
+    "version": "1.0.8-6",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: affected）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
-    "reference": "https://avd.aquasec.com/nvd/cve-2026-42250",
-    "expires": "2026-11-12T18:00:00Z"
+    "reason": "2026-11-13再評価：対象はbzip2recoverユーティリティ。実コンテナにbzip2パッケージ・bzip2recover実行ファイルなし。libbz2のみでは対象処理を提供しない。 Debian公式でTrixie修正版なし（他リリースの修正を混在導入しない）。現行Portfolio開発イメージ限定で無影響と判断し、2026-11-20 03:00 JSTまで受容。パッケージ・mount・起動処理変更時は再評価。",
+    "reference": "https://security-tracker.debian.org/tracker/CVE-2026-42250",
+    "expires": "2026-11-19T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -613,11 +613,11 @@
     "target": "Development image",
     "id": "CVE-2026-89092",
     "package": "libc-bin",
-    "version": "2.36-9+deb12u14",
+    "version": "2.41-12+deb13u4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
-    "reference": "https://avd.aquasec.com/nvd/cve-2026-89092",
-    "expires": "2026-11-12T18:00:00Z"
+    "reason": "2026-11-13再評価：対象はnscdサービス。実コンテナにnscdパッケージ・実行ファイル・稼働プロセス・socketなし。ホストnscd socket共有なし。 Debian公式でTrixie修正版なし（他リリースの修正を混在導入しない）。現行Portfolio開発イメージ限定で無影響と判断し、2026-11-20 03:00 JSTまで受容。パッケージ・mount・起動処理変更時は再評価。",
+    "reference": "https://security-tracker.debian.org/tracker/CVE-2026-89092",
+    "expires": "2026-11-19T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -843,11 +843,11 @@
     "target": "Development image",
     "id": "CVE-2026-89092",
     "package": "libc6",
-    "version": "2.36-9+deb12u14",
+    "version": "2.41-12+deb13u4",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
-    "reference": "https://avd.aquasec.com/nvd/cve-2026-89092",
-    "expires": "2026-11-12T18:00:00Z"
+    "reason": "2026-11-13再評価：対象はnscdサービス。実コンテナにnscdパッケージ・実行ファイル・稼働プロセス・socketなし。ホストnscd socket共有なし。 Debian公式でTrixie修正版なし（他リリースの修正を混在導入しない）。現行Portfolio開発イメージ限定で無影響と判断し、2026-11-20 03:00 JSTまで受容。パッケージ・mount・起動処理変更時は再評価。",
+    "reference": "https://security-tracker.debian.org/tracker/CVE-2026-89092",
+    "expires": "2026-11-19T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1413,21 +1413,21 @@
     "target": "Development image",
     "id": "CVE-2026-16742",
     "package": "libsystemd0",
-    "version": "252.39-1~deb12u2",
+    "version": "257.13-1~deb13u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
-    "reference": "https://avd.aquasec.com/nvd/cve-2026-16742",
-    "expires": "2026-11-12T18:00:00Z"
+    "reason": "2026-11-13再評価：対象はsystemd-homedのユーザー管理。実コンテナにsystemd/homedパッケージ・実行ファイル・稼働プロセスなし。ホストのsystemd/DBus socket共有なし。 Debian公式でTrixie修正版なし（他リリースの修正を混在導入しない）。現行Portfolio開発イメージ限定で無影響と判断し、2026-11-20 03:00 JSTまで受容。パッケージ・mount・起動処理変更時は再評価。",
+    "reference": "https://security-tracker.debian.org/tracker/CVE-2026-16742",
+    "expires": "2026-11-19T18:00:00Z"
   },
   {
     "target": "Development image",
     "id": "CVE-2026-15059",
     "package": "libsystemd0",
-    "version": "252.39-1~deb12u2",
+    "version": "257.13-1~deb13u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
-    "reference": "https://avd.aquasec.com/nvd/cve-2026-15059",
-    "expires": "2026-11-12T18:00:00Z"
+    "reason": "2026-11-13再評価：対象はsystemd-oomdのIPC API。実コンテナにsystemd/oomdパッケージ・実行ファイル・稼働プロセスなし。ホストのsystemd/DBus socket共有なし。 Debian公式でTrixie修正版なし（他リリースの修正を混在導入しない）。現行Portfolio開発イメージ限定で無影響と判断し、2026-11-20 03:00 JSTまで受容。パッケージ・mount・起動処理変更時は再評価。",
+    "reference": "https://security-tracker.debian.org/tracker/CVE-2026-15059",
+    "expires": "2026-11-19T18:00:00Z"
   },
   {
     "target": "Development image",
@@ -1523,21 +1523,21 @@
     "target": "Development image",
     "id": "CVE-2026-16742",
     "package": "libudev1",
-    "version": "252.39-1~deb12u2",
+    "version": "257.13-1~deb13u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
-    "reference": "https://avd.aquasec.com/nvd/cve-2026-16742",
-    "expires": "2026-11-12T18:00:00Z"
+    "reason": "2026-11-13再評価：対象はsystemd-homedのユーザー管理。実コンテナにsystemd/homedパッケージ・実行ファイル・稼働プロセスなし。ホストのsystemd/DBus socket共有なし。 Debian公式でTrixie修正版なし（他リリースの修正を混在導入しない）。現行Portfolio開発イメージ限定で無影響と判断し、2026-11-20 03:00 JSTまで受容。パッケージ・mount・起動処理変更時は再評価。",
+    "reference": "https://security-tracker.debian.org/tracker/CVE-2026-16742",
+    "expires": "2026-11-19T18:00:00Z"
   },
   {
     "target": "Development image",
     "id": "CVE-2026-15059",
     "package": "libudev1",
-    "version": "252.39-1~deb12u2",
+    "version": "257.13-1~deb13u1",
     "fixedVersion": "",
-    "reason": "パッチ待ち：2026-11-03の最新DBによる再検査でDebian bookworm向け修正版の提示なし（status: fix_deferred）。開発用イメージでの一時受容として2026-11-13 03:00 JSTまでに再確認する。",
-    "reference": "https://avd.aquasec.com/nvd/cve-2026-15059",
-    "expires": "2026-11-12T18:00:00Z"
+    "reason": "2026-11-13再評価：対象はsystemd-oomdのIPC API。実コンテナにsystemd/oomdパッケージ・実行ファイル・稼働プロセスなし。ホストのsystemd/DBus socket共有なし。 Debian公式でTrixie修正版なし（他リリースの修正を混在導入しない）。現行Portfolio開発イメージ限定で無影響と判断し、2026-11-20 03:00 JSTまで受容。パッケージ・mount・起動処理変更時は再評価。",
+    "reference": "https://security-tracker.debian.org/tracker/CVE-2026-15059",
+    "expires": "2026-11-19T18:00:00Z"
   },
   {
     "target": "Development image",
